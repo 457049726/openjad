@@ -4,6 +4,9 @@
 	<groupId>com.openjad.framework</groupId>
 	<artifactId>openjad</artifactId>
 	<version>2.0.1-RELEASE</version>
+	<description>openjad</description>
+	<name>openjad</name>
+	<url>http://www.openjad.com</url>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -32,6 +35,44 @@
 		<spring-boot-maven-plugin.version>2.1.6.RELEASE</spring-boot-maven-plugin.version>
 
 	</properties>
+
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<email>457049726@qq.com</email>
+			<name>hechuan</name>
+			<url>https://github.com/457049726/openjad</url>
+			<id>457049726@qq.com</id>
+		</developer>
+	</developers>
+
+	<issueManagement>
+		<url>https://github.com/457049726/openjad/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+	<scm>
+		<url>https://github.com/457049726/openjad</url>
+		<connection>scm:git:https://github.com/457049726/openjad.git</connection>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencyManagement>
 		<dependencies>
@@ -70,7 +111,7 @@
 				<artifactId>spring-boot-starter-log4j2</artifactId>
 				<version>${spring-boot.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-jdbc</artifactId>
@@ -200,7 +241,36 @@
 		</dependencies>
 	</dependencyManagement>
 
-
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
 
 
