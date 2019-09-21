@@ -8,11 +8,8 @@ import com.openjad.common.constant.cv.AbstractCode;
 
 /**
  * 
- *  @Title BaseEncodedLogMsg
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能简述>
  */
 public class BaseLogMsg extends AbstractCode {
 

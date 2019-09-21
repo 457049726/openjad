@@ -2,13 +2,9 @@ package com.openjad.logger.log4j2;
 
 /**
  * 
- * <一句话文件描述>
  * 
- *  @Title Log4j2Constants
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 public class Log4j2Constants {
 	public static final String DEFAULT_LOG4J_FILE = "log4j2.xml";

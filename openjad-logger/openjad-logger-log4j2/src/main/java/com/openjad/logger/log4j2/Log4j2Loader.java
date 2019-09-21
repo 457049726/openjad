@@ -145,7 +145,7 @@ public class Log4j2Loader {
 	/**
 	 * 获取日志输出路径
 	 * 
-	 * @param classPath
+	 * @param classPath param
 	 */
 	private static void setLogDirPath(String classPath) {
 		String key = LOG_DIR_PATH;

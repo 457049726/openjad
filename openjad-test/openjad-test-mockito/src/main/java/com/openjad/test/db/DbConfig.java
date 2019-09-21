@@ -2,13 +2,9 @@ package com.openjad.test.db;
 
 /**
  * 
- * <一句话文件描述>
  * 
- *  @Title DbConfig
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 public class DbConfig {
 	

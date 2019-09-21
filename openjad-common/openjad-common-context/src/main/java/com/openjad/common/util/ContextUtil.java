@@ -7,11 +7,8 @@ import org.springframework.core.env.Environment;
 
 /**
  * 
- *  @Title ContextUtils
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能简述>
  */
 public class ContextUtil {
 

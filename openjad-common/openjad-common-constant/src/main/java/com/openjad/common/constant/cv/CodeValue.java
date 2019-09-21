@@ -2,43 +2,37 @@ package com.openjad.common.constant.cv;
 
 /**
  * 
- * @Title CodeValue
  * @author hechuan
- * @date 2019年9月20日
  *
- *       <功能简述>
  */
 public interface CodeValue {
 
 	/**
-	 * 返回code
 	 * 
-	 * @return
+	 * 
+	 * @return 返回code
 	 */
 	String getCode();
 
 	/**
-	 * 返回value
+	 *  
 	 * 
-	 * @return
+	 * @return 返回value
 	 */
 	String getValue();
 
 	/**
-	 * 返回类型
 	 * 
-	 * @return
+	 * 
+	 * @return 返回类型
 	 */
 	String getTypeFlag();
 }
 
 /**
  * 
- * @Title CodeValuePair
  * @author hechuan
- * @date 2019年9月20日
  *
- *       <功能简述>
  */
 class CodeValuePair implements CodeValue {
 	private String code;

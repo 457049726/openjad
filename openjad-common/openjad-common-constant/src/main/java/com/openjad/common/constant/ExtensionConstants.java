@@ -4,11 +4,8 @@ package com.openjad.common.constant;
  * 
  * 扩展名常量
  * 
- *  @Title ExtensionConstants
  *  @author hechuan
- *  @date 2019年9月21日
  *
- *  <功能详述>
  */
 public class ExtensionConstants {
 	

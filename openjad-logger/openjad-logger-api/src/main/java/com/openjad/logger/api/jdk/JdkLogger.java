@@ -7,13 +7,9 @@ import com.openjad.logger.api.AbstractLogger;
 
 /**
  * 
- * <一句话文件描述>
  * 
- *  @Title JdkLogger
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 public class JdkLogger extends AbstractLogger {
 

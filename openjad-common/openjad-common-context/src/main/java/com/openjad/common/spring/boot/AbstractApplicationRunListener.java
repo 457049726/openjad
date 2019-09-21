@@ -20,11 +20,8 @@ import com.openjad.logger.api.LoggerFactory;
 
 /**
  * 
- * @Title AbstractApplicationRunListener
  * @author hechuan
- * @date 2019年9月20日
  *
- *       <功能简述>
  */
 public class AbstractApplicationRunListener implements SpringApplicationRunListener {
 
@@ -85,8 +82,8 @@ public class AbstractApplicationRunListener implements SpringApplicationRunListe
 	/**
 	 * spring boot 1.x 系统完成时调用
 	 * 
-	 * @param context
-	 * @param exception
+	 * @param context param 
+	 * @param exception param
 	 */
 	public void finished(ConfigurableApplicationContext context, Throwable exception) {
 		sysStarted(context);
@@ -101,7 +98,7 @@ public class AbstractApplicationRunListener implements SpringApplicationRunListe
 	/**
 	 * 系统启动完成，子类可继承
 	 * 
-	 * @param context
+	 * @param context param
 	 */
 	protected void sysStarted(ConfigurableApplicationContext context) {
 	}

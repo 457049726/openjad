@@ -9,9 +9,7 @@ import org.springframework.core.annotation.Order;
 
 /**
  * 
- *  @Title ApplicationStartedRunListener
  *  @author hechuan
- *  @date 2019年9月20日
  * 
  *  最后执行
  */

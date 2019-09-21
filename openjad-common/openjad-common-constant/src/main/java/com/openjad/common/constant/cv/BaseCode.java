@@ -1,6 +1,5 @@
 package com.openjad.common.constant.cv;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -10,11 +9,8 @@ import java.util.TreeMap;
 
 /**
  * 
- * @Title BaseCode
  * @author hechuan
- * @date 2019年9月20日
  *
- *       <功能简述>
  */
 public abstract class BaseCode {
 

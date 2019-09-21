@@ -1,44 +1,40 @@
-package com.openjad.logger.api.levellogger;
+package com.openjad.logger.api.level;
 
 import com.openjad.common.constant.BaseLogMsg;
 
 /**
  * 
- * <一句话文件描述>
  * 
- *  @Title WarnLogger
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 public interface WarnLogger {
 	
 	/**
 	 * warn
-	 * @param logMsg
+	 * @param logMsg param
 	 */
 	public void warn(BaseLogMsg logMsg);
 	
 	/**
 	 * warn
-	 * @param logMsg
-	 * @param msg
+	 * @param logMsg param
+	 * @param msg param
 	 */
 	public void warn(BaseLogMsg logMsg,String msg);
 	
 	/**
 	 * warn
-	 * @param logMsg
-	 * @param e
+	 * @param logMsg param
+	 * @param e param
 	 */
 	public void warn(BaseLogMsg logMsg,Throwable e);
 	
 	/**
 	 * warn
-	 * @param logMsg
-	 * @param msg
-	 * @param e
+	 * @param logMsg param
+	 * @param msg param
+	 * @param e param
 	 */
 	public void warn(BaseLogMsg logMsg,String msg,Throwable e);
 

@@ -9,13 +9,9 @@ import org.slf4j.Logger;
 
 /**
  * 
- * <一句话文件描述>
  * 
- *  @Title Log4j2LoggerFactory
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 public class Log4j2LoggerFactory extends AbstractLoggerAdapter<Logger> implements ILoggerFactory{
 

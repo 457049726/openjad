@@ -4,11 +4,8 @@ package com.openjad.common.constant;
  * 
  * 参数配置常量
  * 
- *  @Title PropertiesKeyConstants
  *  @author hechuan
- *  @date 2019年9月21日
  *
- *  <功能详述>
  */
 public class PropertiyConstants {
 

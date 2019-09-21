@@ -4,11 +4,8 @@ package com.openjad.common.constant;
  * 
  * 字符常量
  * 
- *  @Title CharacterConstants
  *  @author hechuan
- *  @date 2019年9月21日
  *
- *  <功能详述>
  */
 public class CharacterConstants {
 	

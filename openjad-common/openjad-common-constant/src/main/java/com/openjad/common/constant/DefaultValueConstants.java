@@ -4,11 +4,8 @@ package com.openjad.common.constant;
  * 
  * 默认值常量
  * 
- *  @Title DefaultValueConstants
  *  @author hechuan
- *  @date 2019年9月21日
  *
- *  <功能详述>
  */
 public class DefaultValueConstants {
 

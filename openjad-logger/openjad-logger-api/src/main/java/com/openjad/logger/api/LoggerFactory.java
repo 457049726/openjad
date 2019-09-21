@@ -9,13 +9,9 @@ import com.openjad.logger.api.support.FailsafeLogger;
 
 /**
  * 
- * <一句话文件描述>
  * 
- * @Title LoggerFactory
  * @author hechuan
- * @date 2019年9月20日
  *
- *       <功能详述>
  */
 public class LoggerFactory {
 

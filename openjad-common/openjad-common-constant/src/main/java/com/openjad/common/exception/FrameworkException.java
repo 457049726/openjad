@@ -7,11 +7,8 @@ import com.openjad.common.constant.cv.AbstractCode;
  * 
  * 框架异常
  * 
- *  @Title FrameworkException
  *  @author hechuan
- *  @date 2019年9月21日
  *
- *  <功能详述>
  */
 @SuppressWarnings("serial")
 public class FrameworkException extends RuntimeException {

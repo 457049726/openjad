@@ -30,9 +30,9 @@ import static com.openjad.common.constant.PropertiyConstants.*;
 public class SysInitArgUtils {
 
 	/**
-	 * 从系统属性中获取所有参数
 	 * 
-	 * @return
+	 * 
+	 * @return 从系统属性中获取所有参数
 	 */
 	public static Map<String, String> getPropertiesFromSystem(boolean toLowkey) {
 		Map<String, String> map = new HashMap<String, String>(DEF_COLLECT_CAPACITY);
@@ -48,8 +48,8 @@ public class SysInitArgUtils {
 	/**
 	 * 从 spring 环境中获取所有参数
 	 * 
-	 * @param environment
-	 * @return
+	 * @param environment param
+	 * @return 所有参数
 	 */
 	public static Map<String, String> getPropertiesFromEnvironment(ConfigurableEnvironment environment, boolean toLowkey) {
 
@@ -120,7 +120,7 @@ public class SysInitArgUtils {
 	 * 判断是否存在 Property
 	 * 
 	 * @param key
-	 * @return
+	 * @return 结果
 	 */
 	public static boolean hasProperty(String key) {
 		return StringUtils.isNotBlank(System.getProperty(key));
@@ -129,7 +129,7 @@ public class SysInitArgUtils {
 	/**
 	 * 获取项目名称
 	 * 
-	 * @return
+	 * @return 结果
 	 */
 	public static String readProjectName() {
 		String basePath = SysInitArgUtils.class.getProtectionDomain().getCodeSource().getLocation().getPath();
@@ -157,7 +157,7 @@ public class SysInitArgUtils {
 	/**
 	 * 获取程序启动 classPath
 	 * 
-	 * @return
+	 * @return 结果
 	 */
 	public static String getClassPath() {
 		String classPath = "";

@@ -25,13 +25,9 @@ import static com.openjad.common.constant.DefaultValueConstants.DEF_COLLECT_CAPA
 
 /**
  * 
- * <一句话文件描述>
  * 
- *  @Title DbTestUtils
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 public class DbTestUtils {
 	
@@ -209,8 +205,8 @@ public class DbTestUtils {
   
     /** 
      * 根据传入的结果集返回结果集的元数据，以列名为键以列类型为值的map对象 
-     * @param rs 
-     * @return  
+     * @param rs  param
+     * @return 结果 param
      * @throws SQLException 
      */  
     private Map<String,Integer> getMetaData(ResultSet rs) throws SQLException{  
@@ -228,10 +224,10 @@ public class DbTestUtils {
       
     /** 
      * 将结果集封装为以列名存储的map对象 
-     * @param rs 
-     * @param metaDataMap元数据集合 
-     * @return 
-     * @throws Exception 
+     * @param rs param
+     * @param metaDataMap metaDataMap元数据集合  
+     * @return  结果
+     * @throws Exception 异常
      */  
     private Map<String,Object> setData(ResultSet rs,Map<String,Integer> metaDataMap) throws Exception {  
         Map<String,Object> map = Collections.emptyMap();  

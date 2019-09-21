@@ -2,11 +2,8 @@ package com.openjad.common.constant.cv;
 
 /**
  * 
- * @Title AbstractCode
  * @author hechuan
- * @date 2019年9月20日
  *
- *       <功能简述>
  */
 public abstract class AbstractCode extends BaseCode implements Code {
 

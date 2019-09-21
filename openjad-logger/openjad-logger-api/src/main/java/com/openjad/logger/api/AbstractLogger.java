@@ -1,18 +1,14 @@
 package com.openjad.logger.api;
 
-import com.openjad.common.constant.BaseLogMsg;
+import static com.openjad.common.constant.CharacterConstants.CONVERT_LINE_CHARACTER;
 
-import static com.openjad.common.constant.CharacterConstants.*;
+import com.openjad.common.constant.BaseLogMsg;
 
 /**
  * 
- * <一句话文件描述>
  * 
- *  @Title AbstractLogger
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 public abstract class AbstractLogger implements Logger {
 

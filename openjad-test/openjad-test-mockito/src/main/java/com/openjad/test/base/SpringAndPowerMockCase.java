@@ -8,13 +8,8 @@ import com.openjad.test.junit.MySpringJunit4ClassRunner;
 
 /**
  * 
- * <一句话文件描述>
- * 
- *  @Title SpringAndPowerMockCase
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 @RunWith(PowerMockRunner.class)
 @PowerMockRunnerDelegate(MySpringJunit4ClassRunner.class)

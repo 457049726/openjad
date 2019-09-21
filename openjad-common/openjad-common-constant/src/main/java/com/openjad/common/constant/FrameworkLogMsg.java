@@ -2,11 +2,8 @@ package com.openjad.common.constant;
 
 /**
  * 
- * @Title FrameworkLogMsg
  * @author hechuan
- * @date 2019年9月20日
  *
- *       <功能简述>
  */
 public class FrameworkLogMsg extends BaseLogMsg {
 

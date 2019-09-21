@@ -11,13 +11,9 @@ import static com.openjad.logger.log4j2.Log4j2Constants.*;
 
 /**
  * 
- * <一句话文件描述>
  * 
- *  @Title JadXmlConfigurationFactory
  *  @author hechuan
- *  @date 2019年9月20日
  *
- *  <功能详述>
  */
 public class JadXmlConfigurationFactory extends XmlConfigurationFactory {
 
