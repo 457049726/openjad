@@ -1,0 +1,4 @@
+
+org.springframework.boot.SpringApplicationRunListener=\
+com.openjad.common.spring.boot.ApplicationBannerRunListener,\
+com.openjad.common.spring.boot.ApplicationStartedRunListener
