@@ -8,14 +8,13 @@ jad 的全称是 java auto develop（java自动化开发框架），openjad的�
 对于一个普通的java web项目来说，spring、日志、测试这几乎是任何一个java项目必须集成的框架，openjad后期将开源诸如orm、oauth2、dubbo等更多的组件。  
 openjad充分吸收种业务系统的开发经验，完善和简化了对这些模块的集成，屏蔽了在集成过程中可能遇到的各种坑。让程序员全自动化集成，少走些弯路，少踩些坑，有更多的时间来陪自己的家人和孩子。  
 
-### openjad代码地址：
-**码云地址**[https://gitee.com/457049726/openjad](https://gitee.com/457049726/openjad)
-**github地址**[https://github.com/457049726/openjad](https://github.com/457049726/openjad)
+### openjad代码地址：  
+**码云地址**[https://gitee.com/457049726/openjad](https://gitee.com/457049726/openjad)   
+**github地址**[https://github.com/457049726/openjad](https://github.com/457049726/openjad)   
+**旧版本jad地址**[https://gitee.com/457049726/jad/](https://gitee.com/457049726/jad/)  
 
-**旧版本jad地址**[https://gitee.com/457049726/jad/](https://gitee.com/457049726/jad/)
-
-### openjad官网网址：
-[http://www.openjad.com](http://www.openjad.com)
+### openjad官网网址：   
+[http://www.openjad.com](http://www.openjad.com)   
 
 ### 技术交流 
 qq技术交流群:619142526  
