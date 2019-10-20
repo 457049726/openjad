@@ -7,8 +7,6 @@
 		<version>2.0.1-RELEASE</version>
 	</parent>
 	<artifactId>openjad-logger-log4j2</artifactId>
-
-
 	<dependencies>
 		<dependency>
 			<groupId>com.openjad.logger</groupId>
@@ -36,8 +34,6 @@
 			<artifactId>spring-boot</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

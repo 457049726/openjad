@@ -6,13 +6,36 @@
 		<artifactId>openjad-common</artifactId>
 		<version>2.0.1-RELEASE</version>
 	</parent>
-	<groupId>openjad-common-util</groupId>
 	<artifactId>openjad-common-util</artifactId>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.openjad.common</groupId>
+			<artifactId>openjad-common-context</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>cn.hutool</groupId>
 			<artifactId>hutool-all</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 </project>

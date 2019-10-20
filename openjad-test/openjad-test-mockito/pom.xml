@@ -7,17 +7,12 @@
 		<version>2.0.1-RELEASE</version>
 	</parent>
 	<artifactId>openjad-test-mockito</artifactId>
-
-
 	<properties>
 		<powermock2_version>2.0.0</powermock2_version>
 		<mockito.version>2.23.0</mockito.version>
 	</properties>
 
 	<dependencies>
-
-
-
 		<dependency>
 			<groupId>com.jad.logger</groupId>
 			<artifactId>jad-logger-api</artifactId>
@@ -29,8 +24,7 @@
 			<artifactId>openjad-common-constant</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
-
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

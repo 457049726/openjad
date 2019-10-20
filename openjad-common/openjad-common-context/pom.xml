@@ -10,12 +10,13 @@
 
 	<dependencies>
 
+
 		<dependency>
 			<groupId>com.openjad.logger</groupId>
 			<artifactId>openjad-logger-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>com.openjad.common</groupId>
 			<artifactId>openjad-common-constant</artifactId>

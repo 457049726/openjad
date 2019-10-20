@@ -22,7 +22,7 @@ public class PropertiyConstants {
 	/**
 	 * 框架日志默认地址
 	 */
-	public static final String FRAMEWORK_DEFAUTL_SITE_LOG_URL = "http://log.openjad.com";
+	public static final String FRAMEWORK_DEFAUTL_SITE_LOG_URL = "http://www.openjad.com/html/log";
 
 	/**
 	 * 框架网站地址配置key
