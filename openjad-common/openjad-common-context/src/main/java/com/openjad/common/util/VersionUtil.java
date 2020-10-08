@@ -79,7 +79,7 @@ public class VersionUtil {
 	}
 
 	public static void checkDuplicate(Class<?> cls, boolean failOnError) {
-		checkDuplicate(cls.getName().replace(PERIOD_CHARACTER, LEFT_SLASH_CHARACTER) + CLASS_EXTENSIONS, failOnError);
+		checkDuplicate(cls.getName().replace(DOT_CHARACTER, LEFT_SLASH_CHARACTER) + CLASS_EXTENSIONS, failOnError);
 	}
 
 	public static void checkDuplicate(Class<?> cls) {

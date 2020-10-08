@@ -1,13 +1,13 @@
 package com.openjad.logger.api.support;
 
-import com.openjad.common.constant.BaseLogMsg;
+import com.openjad.common.constant.BaseLogCode;
 import com.openjad.logger.api.AbstractLogger;
 import com.openjad.logger.api.Logger;
 
 /**
  * 
  * 
- *  @author hechuan
+ * @author hechuan
  *
  */
 public class FailsafeLogger extends AbstractLogger {
@@ -26,16 +26,10 @@ public class FailsafeLogger extends AbstractLogger {
 		this.logger = logger;
 	}
 
-	private String appendContextMessage(String msg) {
-//    	return " [JAD-LOGGER] " + msg + ", jad version: " + Version.getVersion() ;
-//		return " [JAD-LOGGER] " + msg + ", jad version: " + LoggerVersionUtils.getVersion();
-		return msg;
-	}
-
 	@Override
 	public void trace(String msg, Throwable e) {
 		try {
-			logger.trace(appendContextMessage(msg), e);
+			logger.trace(msg, e);
 		} catch (Throwable t) {
 		}
 	}
@@ -51,7 +45,7 @@ public class FailsafeLogger extends AbstractLogger {
 	@Override
 	public void trace(String msg) {
 		try {
-			logger.trace(appendContextMessage(msg));
+			logger.trace(msg);
 		} catch (Throwable t) {
 		}
 	}
@@ -59,9 +53,8 @@ public class FailsafeLogger extends AbstractLogger {
 	@Override
 	public void debug(String msg, Throwable e) {
 		try {
-			logger.debug(appendContextMessage(msg), e);
+			logger.debug(msg, e);
 		} catch (Throwable t) {
-
 		}
 	}
 
@@ -70,70 +63,63 @@ public class FailsafeLogger extends AbstractLogger {
 		try {
 			logger.debug(e);
 		} catch (Throwable t) {
-
 		}
 	}
 
 	@Override
 	public void debug(String msg) {
 		try {
-			logger.debug(appendContextMessage(msg));
+			logger.debug(msg);
 		} catch (Throwable t) {
-
 		}
 	}
 
 	@Override
 	public void info(String msg, Throwable e) {
 		try {
-			logger.info(appendContextMessage(msg), e);
+			logger.info(msg, e);
 		} catch (Throwable t) {
-
 		}
 	}
 
 	@Override
 	public void info(String msg) {
 		try {
-			logger.info(appendContextMessage(msg));
+			logger.info(msg);
 		} catch (Throwable t) {
-
 		}
 	}
 
 	@Override
 	public void warn(String msg, Throwable e) {
 		try {
-			logger.warn(appendContextMessage(msg), e);
+			logger.warn(msg, e);
 		} catch (Throwable t) {
-
 		}
 	}
 
 	@Override
 	public void warn(String msg) {
 		try {
-			logger.warn(appendContextMessage(msg));
+			logger.warn(msg);
 		} catch (Throwable t) {
-
+			System.out.println("呃");
 		}
 	}
 
 	@Override
 	public void error(String msg, Throwable e) {
 		try {
-			logger.error(appendContextMessage(msg), e);
+			logger.error(msg, e);
 		} catch (Throwable t) {
-
 		}
 	}
 
 	@Override
 	public void error(String msg) {
 		try {
-			logger.error(appendContextMessage(msg));
+			logger.error(msg);
 		} catch (Throwable t) {
-
 		}
 	}
 
@@ -142,7 +128,7 @@ public class FailsafeLogger extends AbstractLogger {
 		try {
 			logger.error(e);
 		} catch (Throwable t) {
-
+			t.printStackTrace();
 		}
 	}
 
@@ -151,16 +137,14 @@ public class FailsafeLogger extends AbstractLogger {
 		try {
 			logger.info(e);
 		} catch (Throwable t) {
-
 		}
 	}
 
 	@Override
 	public void warn(Throwable e) {
 		try {
-			logger.warn(e);
+			logger.warn( e);
 		} catch (Throwable t) {
-
 		}
 	}
 
@@ -210,164 +194,164 @@ public class FailsafeLogger extends AbstractLogger {
 	}
 
 	@Override
-	public void trace(BaseLogMsg logMsg) {
+	public void trace(BaseLogCode logMsg) {
 		try {
-			logger.trace(appendContextMessage(toMsg(logMsg)));
+			logger.trace(logMsg);
 		} catch (Throwable t) {
 		}
-		
+
 	}
 
 	@Override
-	public void trace(BaseLogMsg logMsg, String msg) {
+	public void trace(BaseLogCode logMsg, String msg) {
 		try {
-			logger.trace(appendContextMessage(toMsg(logMsg,msg)));
-		} catch (Throwable t) {
-		}
-	}
-
-	@Override
-	public void trace(BaseLogMsg logMsg, Throwable e) {
-		try {
-			logger.trace(appendContextMessage(toMsg(logMsg)), e);
-		} catch (Throwable t) {
-		}
-		
-	}
-
-	@Override
-	public void trace(BaseLogMsg logMsg, String msg, Throwable e) {
-		try {
-			logger.trace(appendContextMessage(toMsg(logMsg,msg)), e);
-		} catch (Throwable t) {
-		}
-		
-	}
-
-	@Override
-	public void debug(BaseLogMsg logMsg) {
-		try {
-			logger.debug(appendContextMessage(toMsg(logMsg)));
+			logger.trace(logMsg, msg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void debug(BaseLogMsg logMsg, String msg) {
+	public void trace(BaseLogCode logMsg, Throwable e) {
 		try {
-			logger.debug(appendContextMessage(toMsg(logMsg,msg)));
+			logger.trace(logMsg, e);
+		} catch (Throwable t) {
+		}
+
+	}
+
+	@Override
+	public void trace(BaseLogCode logMsg, String msg, Throwable e) {
+		try {
+			logger.trace(logMsg, msg, e);
+		} catch (Throwable t) {
+		}
+
+	}
+
+	@Override
+	public void debug(BaseLogCode logMsg) {
+		try {
+			logger.debug(logMsg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void debug(BaseLogMsg logMsg, Throwable e) {
+	public void debug(BaseLogCode logMsg, String msg) {
 		try {
-			logger.debug(appendContextMessage(toMsg(logMsg)), e);
+			logger.debug(logMsg, msg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void debug(BaseLogMsg logMsg, String msg, Throwable e) {
+	public void debug(BaseLogCode logMsg, Throwable e) {
 		try {
-			logger.debug(appendContextMessage(toMsg(logMsg,msg)), e);
+			logger.debug(logMsg, e);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void info(BaseLogMsg logMsg) {
+	public void debug(BaseLogCode logMsg, String msg, Throwable e) {
 		try {
-			logger.info(appendContextMessage(toMsg(logMsg)));
+			logger.debug(logMsg, msg, e);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void info(BaseLogMsg logMsg, String msg) {
+	public void info(BaseLogCode logMsg) {
 		try {
-			logger.info(appendContextMessage(toMsg(logMsg,msg)));
+			logger.info(logMsg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void info(BaseLogMsg logMsg, Throwable e) {
+	public void info(BaseLogCode logMsg, String msg) {
 		try {
-			logger.info(appendContextMessage(toMsg(logMsg)), e);
+			logger.info(logMsg, msg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void info(BaseLogMsg logMsg, String msg, Throwable e) {
+	public void info(BaseLogCode logMsg, Throwable e) {
 		try {
-			logger.info(appendContextMessage(toMsg(logMsg,msg)), e);
+			logger.info(logMsg, e);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void warn(BaseLogMsg logMsg) {
+	public void info(BaseLogCode logMsg, String msg, Throwable e) {
 		try {
-			logger.warn(appendContextMessage(toMsg(logMsg)));
+			logger.info(logMsg, msg, e);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void warn(BaseLogMsg logMsg, String msg) {
+	public void warn(BaseLogCode logMsg) {
 		try {
-			logger.warn(appendContextMessage(toMsg(logMsg,msg)));
+			logger.warn(logMsg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void warn(BaseLogMsg logMsg, Throwable e) {
+	public void warn(BaseLogCode logMsg, String msg) {
 		try {
-			logger.warn(appendContextMessage(toMsg(logMsg)), e);
+			logger.warn(logMsg, msg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void warn(BaseLogMsg logMsg, String msg, Throwable e) {
+	public void warn(BaseLogCode logMsg, Throwable e) {
 		try {
-			logger.warn(appendContextMessage(toMsg(logMsg,msg)), e);
+			logger.warn(logMsg, e);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void error(BaseLogMsg logMsg) {
+	public void warn(BaseLogCode logMsg, String msg, Throwable e) {
 		try {
-			logger.error(appendContextMessage(toMsg(logMsg)));
+			logger.warn(logMsg, msg, e);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void error(BaseLogMsg logMsg, String msg) {
+	public void error(BaseLogCode logMsg) {
 		try {
-			logger.error(appendContextMessage(toMsg(logMsg,msg)));
+			logger.error(logMsg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void error(BaseLogMsg logMsg, Throwable e) {
+	public void error(BaseLogCode logMsg, String msg) {
 		try {
-			logger.error(appendContextMessage(toMsg(logMsg)), e);
+			logger.error(logMsg, msg);
 		} catch (Throwable t) {
 		}
 	}
 
 	@Override
-	public void error(BaseLogMsg logMsg, String msg, Throwable e) {
+	public void error(BaseLogCode logMsg, Throwable e) {
 		try {
-			logger.error(appendContextMessage(toMsg(logMsg,msg)), e);
+			logger.error(logMsg, e);
+		} catch (Throwable t) {
+		}
+	}
+
+	@Override
+	public void error(BaseLogCode logMsg, String msg, Throwable e) {
+		try {
+			logger.error(logMsg, msg, e);
 		} catch (Throwable t) {
 		}
 	}

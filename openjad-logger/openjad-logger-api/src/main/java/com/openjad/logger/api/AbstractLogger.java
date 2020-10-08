@@ -1,33 +1,43 @@
 package com.openjad.logger.api;
 
-import static com.openjad.common.constant.CharacterConstants.CONVERT_LINE_CHARACTER;
+import static com.openjad.common.constant.CharacterConstants.LEFT_SLASH_CHARACTER;
+import static com.openjad.common.constant.ExtensionConstants.HTML_EXTENSIONS;
+import static com.openjad.common.constant.PropertiyConstants.FRAMEWORK_DEFAUTL_SITE_LOG_URL;
+import static com.openjad.common.constant.PropertiyConstants.FRAMEWORK_SITE_LOG_URL_CONF_KEY;
 
-import com.openjad.common.constant.BaseLogMsg;
+import com.openjad.common.constant.BaseLogCode;
 
 /**
  * 
- * 
- *  @author hechuan
+ * @author hechuan
  *
  */
 public abstract class AbstractLogger implements Logger {
 
-	protected String toMsg(BaseLogMsg logMsg) {
-		return toMsg(logMsg, null);
+	public static String FRAMEWORK_SITE_LOG_URL;
+
+	private static String getFrameworkSiteLogUrl() {
+		if (FRAMEWORK_SITE_LOG_URL != null) {
+			return FRAMEWORK_SITE_LOG_URL;
+		}
+		FRAMEWORK_SITE_LOG_URL = System.getProperty(FRAMEWORK_SITE_LOG_URL_CONF_KEY);
+		if (FRAMEWORK_SITE_LOG_URL == null || "".equals(FRAMEWORK_SITE_LOG_URL)) {
+			FRAMEWORK_SITE_LOG_URL = FRAMEWORK_DEFAUTL_SITE_LOG_URL;
+		}
+		return FRAMEWORK_SITE_LOG_URL;
 	}
 
-	protected String toMsg(BaseLogMsg logMsg, String msg) {
+	public String getUrlForMore(BaseLogCode logMsg) {
 		StringBuffer sb = new StringBuffer();
-
-		if (msg == null || "".equals(msg)) {
-			msg = logMsg.getValue();
-		}
-		sb.append(logMsg.getValue());
-		if (logMsg.isUrlForMore()) {
-			sb.append(CONVERT_LINE_CHARACTER);
-			sb.append(logMsg.getMsgForMore());
-		}
+		sb.append(getFrameworkSiteLogUrl());
+		sb.append(LEFT_SLASH_CHARACTER);
+		sb.append(logMsg.getTypeFlag());
+		sb.append(LEFT_SLASH_CHARACTER);
+		sb.append(logMsg.getCode());
+		sb.append(HTML_EXTENSIONS);
 		return sb.toString();
 	}
+
+	
 
 }

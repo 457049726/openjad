@@ -1,6 +1,6 @@
 package com.openjad.logger.api.level;
 
-import com.openjad.common.constant.BaseLogMsg;
+import com.openjad.common.constant.BaseLogCode;
 
 /**
  * 
@@ -14,21 +14,21 @@ public interface DebugLogger {
 	 * info
 	 * @param logMsg param
 	 */
-	public void debug(BaseLogMsg logMsg);
+	public void debug(BaseLogCode logMsg);
 	
 	/**
 	 * info
 	 * @param logMsg param
 	 * @param msg param
 	 */
-	public void debug(BaseLogMsg logMsg,String msg);
+	public void debug(BaseLogCode logMsg,String msg);
 	
 	/**
 	 * info
 	 * @param logMsg param
 	 * @param e param
 	 */
-	public void debug(BaseLogMsg logMsg,Throwable e);
+	public void debug(BaseLogCode logMsg,Throwable e);
 	
 	/**
 	 * info
@@ -36,7 +36,7 @@ public interface DebugLogger {
 	 * @param msg param
 	 * @param e param
 	 */
-	public void debug(BaseLogMsg logMsg,String msg,Throwable e);
+	public void debug(BaseLogCode logMsg,String msg,Throwable e);
 	
 
 	 /**

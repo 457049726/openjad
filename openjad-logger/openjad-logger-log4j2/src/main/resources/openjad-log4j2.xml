@@ -16,7 +16,7 @@
 			filePattern="${LOG_HOME}%d{yyyy-MM-dd}/${FILE_NAME}.log.%d{yyyy-MM-dd-HH}"
 			immediateFlush="false" append="true">
 			<PatternLayout
-				pattern="%d{DEFAULT} [%t] %-5level %class:%L %M %X{appName} %X{spanId} %X{parentId} %X{traceId} - %msg%xEx%n"
+				pattern="%d{DEFAULT} [%t] %-5level %class:%L %M %X{appName} %X{spanId} %X{parentId} %X{traceId} - %msg%xEx%n %X{jadMoreLog}"
 				charset="UTF-8" />
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="1"
@@ -27,7 +27,7 @@
 		<!--控制台日志-->
 		<Console name="console" target="SYSTEM_OUT">
 			<PatternLayout
-				pattern="%d{DEFAULT} [%t] %-5level %class:%L %M %X{appName} %X{spanId} %X{parentId} %X{traceId} - %msg%xEx%n"
+				pattern="%d{DEFAULT} [%t] %-5level %class:%L %M %X{appName} %X{spanId} %X{parentId} %X{traceId} - %msg%xEx%n %X{jadMoreLog}"
 				charset="UTF-8" />
 		</Console>
 

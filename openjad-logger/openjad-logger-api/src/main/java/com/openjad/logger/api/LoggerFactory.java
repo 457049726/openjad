@@ -1,10 +1,15 @@
 package com.openjad.logger.api;
 
+import java.lang.reflect.Field;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.logging.LogManager;
 
+import com.openjad.logger.api.jdk.JdkLogManager;
 import com.openjad.logger.api.jdk.JdkLoggerAdapter;
+import com.openjad.logger.api.jdk.formatter.JadStreamFormatter;
 import com.openjad.logger.api.support.FailsafeLogger;
 
 /**
@@ -28,13 +33,27 @@ public class LoggerFactory {
 		try {
 			setLoggerAdapter((LoggerAdapter) Class.forName("com.openjad.logger.log4j2.Log4j2LoggerAdapter").newInstance());
 		} catch (Exception e) {
-			System.err.println("日志框架初始化失败，自动转换为JdkLoggerAdapter");
+//			System.err.println("日志框架初始化失败，自动转换为JdkLoggerAdapter");
 			setLoggerAdapter(new JdkLoggerAdapter());
 		}
+
+		try {
+			initJdkLogFormatter();
+		} catch (Exception e) {
+			System.err.println("初始化日志Formatter失败");
+		}
+
 	}
 
 	static {
 		init();
+	}
+
+	private static void initJdkLogFormatter() throws Exception {
+		String cname = System.getProperty("java.util.logging.manager");
+		if (cname == null || "".equals(cname)) {
+			System.setProperty("java.util.logging.manager", JdkLogManager.class.getName());
+		}
 	}
 
 	public static void setLoggerAdapter(LoggerAdapter loggerAdapter) {

@@ -52,7 +52,12 @@ public class CharacterConstants {
 	/**
 	 * 句号
 	 */
-	public static final String PERIOD_CHARACTER = ".";
+	public static final String DOT_CHARACTER = ".";
+	
+	/**
+	 * 带转意符的.号
+	 */
+	public static final String DOT_REGEX = "\\.";
 
 	/**
 	 * 分号

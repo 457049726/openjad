@@ -2,13 +2,15 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.openjad</groupId>
-    <artifactId>openjad</artifactId>
-    <version>2.0.1-RELEASE</version>
+    <artifactId>openjad-framework</artifactId>
+    <version>2.0.3-RELEASE</version>
   </parent>
   <groupId>com.openjad.test</groupId>
   <artifactId>openjad-test</artifactId>
+  <version>2.0.3-RELEASE</version>
   <packaging>pom</packaging>
   <modules>
   	<module>openjad-test-mockito</module>
+  	<module>openjad-test-support</module>
   </modules>
 </project>

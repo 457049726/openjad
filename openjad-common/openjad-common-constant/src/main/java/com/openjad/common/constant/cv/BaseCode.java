@@ -29,8 +29,8 @@ public abstract class BaseCode {
 		if (code == null || "".equals(code)) {
 			throw new IllegalArgumentException("code不能为空");
 		}
-		if (value == null || "".equals(value)) {
-			throw new IllegalArgumentException("value不能为空");
+		if (value == null ) {
+			value = "";
 		}
 
 		this.codeValue.setTypeFlag(typeFlag);

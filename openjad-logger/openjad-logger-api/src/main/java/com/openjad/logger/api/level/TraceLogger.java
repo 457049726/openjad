@@ -1,6 +1,6 @@
 package com.openjad.logger.api.level;
 
-import com.openjad.common.constant.BaseLogMsg;
+import com.openjad.common.constant.BaseLogCode;
 
 /**
  * 
@@ -14,21 +14,21 @@ public interface TraceLogger {
 	 * trace
 	 * @param logMsg param
 	 */
-	public void trace(BaseLogMsg logMsg);
+	public void trace(BaseLogCode logMsg);
 	
 	/**
 	 * trace
 	 * @param logMsg   param
 	 * @param msg param
 	 */
-	public void trace(BaseLogMsg logMsg,String msg);
+	public void trace(BaseLogCode logMsg,String msg);
 	
 	/**
 	 * trace
 	 * @param logMsg param
 	 * @param e param
 	 */
-	public void trace(BaseLogMsg logMsg,Throwable e);
+	public void trace(BaseLogCode logMsg,Throwable e);
 	
 	/**
 	 * trace
@@ -36,7 +36,7 @@ public interface TraceLogger {
 	 * @param msg param
 	 * @param e param
 	 */
-	public void trace(BaseLogMsg logMsg,String msg,Throwable e);
+	public void trace(BaseLogCode logMsg,String msg,Throwable e);
 	
 	
     /**

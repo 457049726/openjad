@@ -30,9 +30,10 @@ import static com.openjad.common.constant.PropertiyConstants.*;
 public class SysInitArgUtils {
 
 	/**
+	 * 从系统属性中获取所有参数
 	 * 
-	 * 
-	 * @return 从系统属性中获取所有参数
+	 * @param toLowkey toLowkey
+	 * @return 所有参数
 	 */
 	public static Map<String, String> getPropertiesFromSystem(boolean toLowkey) {
 		Map<String, String> map = new HashMap<String, String>(DEF_COLLECT_CAPACITY);
@@ -49,6 +50,7 @@ public class SysInitArgUtils {
 	 * 从 spring 环境中获取所有参数
 	 * 
 	 * @param environment param
+	 * @param toLowkey    toLowkey
 	 * @return 所有参数
 	 */
 	public static Map<String, String> getPropertiesFromEnvironment(ConfigurableEnvironment environment, boolean toLowkey) {
@@ -72,7 +74,7 @@ public class SysInitArgUtils {
 	@SuppressWarnings("rawtypes")
 	private static Map<String, Object> doExtraProperties(ConfigurableEnvironment environment) {
 
-		Map<String, Object> properties = new LinkedHashMap<>(DEF_COLLECT_CAPACITY); 
+		Map<String, Object> properties = new LinkedHashMap<>(DEF_COLLECT_CAPACITY);
 		Map<String, PropertySource<?>> map = doGetPropertySources(environment);
 
 		for (PropertySource<?> source : map.values()) {
@@ -83,7 +85,7 @@ public class SysInitArgUtils {
 					continue;
 				}
 				for (String propertyName : propertyNames) {
-					if (!properties.containsKey(propertyName)) {  
+					if (!properties.containsKey(propertyName)) {
 						properties.put(propertyName, propertySource.getProperty(propertyName));
 					}
 				}
@@ -119,7 +121,7 @@ public class SysInitArgUtils {
 	/**
 	 * 判断是否存在 Property
 	 * 
-	 * @param key
+	 * @param key key
 	 * @return 结果
 	 */
 	public static boolean hasProperty(String key) {
@@ -144,7 +146,7 @@ public class SysInitArgUtils {
 			if (basePath.indexOf(HYPHEN_CHARACTER) > 0) {
 				basePath = basePath.substring(basePath.lastIndexOf(LEFT_SLASH_CHARACTER) + 1, basePath.lastIndexOf(HYPHEN_CHARACTER));
 			} else {
-				basePath = basePath.substring(basePath.lastIndexOf(LEFT_SLASH_CHARACTER) + 1, basePath.lastIndexOf(PERIOD_CHARACTER));
+				basePath = basePath.substring(basePath.lastIndexOf(LEFT_SLASH_CHARACTER) + 1, basePath.lastIndexOf(DOT_CHARACTER));
 			}
 		} else {
 			if (basePath.indexOf(LEFT_SLASH_CHARACTER) >= 0) {
@@ -175,7 +177,7 @@ public class SysInitArgUtils {
 			}
 			//".jar!"
 			// 如果是jar包内的，则返回当前路径
-			if (classPath == null || "".equals(classPath) || classPath.contains(JAR_EXTENSIONS+EXCLAMATION_CHARACTER)) {
+			if (classPath == null || "".equals(classPath) || classPath.contains(JAR_EXTENSIONS + EXCLAMATION_CHARACTER)) {
 				classPath = System.getProperty(USER_DOT_DIR);
 			}
 		} catch (Throwable ex) {
@@ -195,7 +197,7 @@ public class SysInitArgUtils {
 		}
 		return url;
 	}
-	
+
 	public static String getFrameworkSiteLogUrl() {
 		String url = System.getProperty(FRAMEWORK_SITE_LOG_URL_CONF_KEY);
 		if (StringUtils.isBlank(url)) {

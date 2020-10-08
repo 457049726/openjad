@@ -2,11 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.openjad</groupId>
-    <artifactId>openjad</artifactId>
-    <version>2.0.1-RELEASE</version>
+    <artifactId>openjad-framework</artifactId>
+    <version>2.0.3-RELEASE</version>
   </parent>
   <groupId>com.openjad.common</groupId>
   <artifactId>openjad-common</artifactId>
+  <version>2.0.3-RELEASE</version>
   <packaging>pom</packaging>
   <modules>
   	<module>openjad-common-util</module>

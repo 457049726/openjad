@@ -1,5 +1,7 @@
 package com.openjad.test.db;
 
+import static com.openjad.common.constant.DefaultValueConstants.DEF_COLLECT_CAPACITY;
+
 import java.math.BigDecimal;
 import java.sql.Clob;
 import java.sql.Connection;
@@ -18,10 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.jad.logger.api.Logger;
-import com.jad.logger.api.LoggerFactory;
-
-import static com.openjad.common.constant.DefaultValueConstants.DEF_COLLECT_CAPACITY;
+import com.openjad.logger.api.Logger;
+import com.openjad.logger.api.LoggerFactory;
 
 /**
  * 

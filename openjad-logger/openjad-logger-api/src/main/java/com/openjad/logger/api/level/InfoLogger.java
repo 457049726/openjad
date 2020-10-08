@@ -1,6 +1,6 @@
 package com.openjad.logger.api.level;
 
-import com.openjad.common.constant.BaseLogMsg;
+import com.openjad.common.constant.BaseLogCode;
 
 /**
  * 
@@ -14,21 +14,21 @@ public interface InfoLogger {
 	 * info
 	 * @param logMsg param
 	 */
-	public void info(BaseLogMsg logMsg);
+	public void info(BaseLogCode logMsg);
 	
 	/**
 	 * info
 	 * @param logMsg param
 	 * @param msg param
 	 */
-	public void info(BaseLogMsg logMsg,String msg);
+	public void info(BaseLogCode logMsg,String msg);
 	
 	/**
 	 * info
 	 * @param logMsg param
 	 * @param e param
 	 */
-	public void info(BaseLogMsg logMsg,Throwable e);
+	public void info(BaseLogCode logMsg,Throwable e);
 	
 	/**
 	 * info
@@ -36,7 +36,7 @@ public interface InfoLogger {
 	 * @param msg param
 	 * @param e param
 	 */
-	public void info(BaseLogMsg logMsg,String msg,Throwable e);
+	public void info(BaseLogCode logMsg,String msg,Throwable e);
 	
 	 /**
      * Is info logging currently enabled?

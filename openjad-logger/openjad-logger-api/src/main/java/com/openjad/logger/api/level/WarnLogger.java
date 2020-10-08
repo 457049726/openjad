@@ -1,6 +1,6 @@
 package com.openjad.logger.api.level;
 
-import com.openjad.common.constant.BaseLogMsg;
+import com.openjad.common.constant.BaseLogCode;
 
 /**
  * 
@@ -14,21 +14,21 @@ public interface WarnLogger {
 	 * warn
 	 * @param logMsg param
 	 */
-	public void warn(BaseLogMsg logMsg);
+	public void warn(BaseLogCode logMsg);
 	
 	/**
 	 * warn
 	 * @param logMsg param
 	 * @param msg param
 	 */
-	public void warn(BaseLogMsg logMsg,String msg);
+	public void warn(BaseLogCode logMsg,String msg);
 	
 	/**
 	 * warn
 	 * @param logMsg param
 	 * @param e param
 	 */
-	public void warn(BaseLogMsg logMsg,Throwable e);
+	public void warn(BaseLogCode logMsg,Throwable e);
 	
 	/**
 	 * warn
@@ -36,7 +36,7 @@ public interface WarnLogger {
 	 * @param msg param
 	 * @param e param
 	 */
-	public void warn(BaseLogMsg logMsg,String msg,Throwable e);
+	public void warn(BaseLogCode logMsg,String msg,Throwable e);
 
 
     /**
