@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.openjad.orm</groupId>
+		<artifactId>openjad-orm</artifactId>
+		<version>2.0.3-RELEASE</version>
+	</parent>
+	<artifactId>openjad-orm-api</artifactId>
+	<properties>
+		<hibernate.jpa.api.version>1.0.0.Final</hibernate.jpa.api.version>
+		<mybatisplus.spring.boot.version>1.0.5</mybatisplus.spring.boot.version>
+		<mybatisplus.version>2.1.9</mybatisplus.version>
+	</properties>
+	<dependencies>
+  		<!-- openjad 通用框架依赖 -->
+		<dependency>
+			<groupId>com.openjad.logger</groupId>
+			<artifactId>openjad-logger-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatisplus-spring-boot-starter</artifactId>
+			<version>${mybatisplus.spring.boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+			<version>${mybatisplus.version}</version>
+		</dependency>
+		
+		<!-- jpa依赖 -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>${hibernate.jpa.api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
