@@ -55,7 +55,7 @@ public class SnowFlake {
 		SnowFlake snowFlake = new SnowFlake(1, 1);
 //		for (int i = 0; i < (1 << 12); i++) {
 		for (int i = 0; i < 12; i++) {
-//			System.out.println(snowFlake.nextId());
+			System.out.println(snowFlake.nextId());
 		}
 	}
 

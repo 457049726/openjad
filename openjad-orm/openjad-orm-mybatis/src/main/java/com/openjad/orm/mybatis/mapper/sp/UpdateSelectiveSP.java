@@ -4,22 +4,20 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import com.openjad.orm.mybatis.entity.EoFieldInfo;
 import com.openjad.orm.enums.IdType;
+import com.openjad.orm.mybatis.entity.EoFieldInfo;
 
 /*
- * 
- * updateSelective 节点
- * 
- * <sql id="updateSelective" >
- * <set >
- * <if test="record.requestId != null" >request_id = #{record.requestId,jdbcType=VARCHAR},</if>
+ * <sql id="updateSelective" > <set >
+ * <if test="record.requestId != null" >request_id =
+ * #{record.requestId,jdbcType=VARCHAR},</if>
  * <if test="record.side != null" >side = #{record.side,jdbcType=VARCHAR},</if>
- * <if test="record.heapStack != null" >heap_stack = #{record.heapStack,jdbcType=VARCHAR},</if>
- * <if test="record.errorMessage != null" >error_message = #{record.errorMessage,jdbcType=VARCHAR},</if>
- * <if test="record.errorCode != null" >error_code = #{record.errorCode,jdbcType=VARCHAR}</if>
- * </set>
- * </sql>
+ * <if test="record.heapStack != null" >heap_stack =
+ * #{record.heapStack,jdbcType=VARCHAR},</if>
+ * <if test="record.errorMessage != null" >error_message =
+ * #{record.errorMessage,jdbcType=VARCHAR},</if>
+ * <if test="record.errorCode != null" >error_code =
+ * #{record.errorCode,jdbcType=VARCHAR}</if> </set> </sql>
  */
 public class UpdateSelectiveSP extends MapperItemSP {
 
@@ -42,34 +40,41 @@ public class UpdateSelectiveSP extends MapperItemSP {
 		if (keyField != null && !IdType.AUTO.equals(idType) && !IdType.IDENTITY.equals(idType)) {
 			containKey = true;
 		}
-
 		Element setNode = doc.createElement("set");
 		for (EoFieldInfo fieldInfo : mapperSP.getEoMetaInfo().getFieldInfoMap().values()) {
-			if(!isCommonColumn(fieldInfo)){
+			if (!isCommonColumn(fieldInfo)) {
 				continue;
 			}
-			if(!fieldInfo.isUpdatable()){
+			if (!fieldInfo.isUpdatable()) {
 				continue;
 			}
-			if(fieldInfo.isId()){
+			if (fieldInfo.isId()) {
 				continue;
 			}
 			String column = fieldInfo.getColumn();
-			if(keyField!=null && !containKey && keyField.getColumn().equals(column)){
+			if (keyField != null && !containKey && keyField.getColumn().equals(column)) {
 				continue;
 			}
-			Element ife = doc.createElement("if");
-			
-			StringBuffer sb = new StringBuffer();
-			sb.append("record.").append(fieldInfo.getFieldName()).append("!= null");
-			ife.setAttribute("test", sb.toString());
-			
-			sb = new StringBuffer();
-			sb.append(fieldInfo.getColumn()).append(" = #{record.").append(fieldInfo.getFieldName());
-			sb.append(",jdbcType=").append(fieldInfo.getJdbcType()).append("},");
-			ife.appendChild(doc.createTextNode(sb.toString()));
-			
-			setNode.appendChild(ife);
+
+			if (fieldInfo.isForceUpdateNull()) {
+				StringBuffer sb = new StringBuffer();
+				sb.append(column).append(" = #{record.");
+				sb.append(fieldInfo.getFieldName()).append(",jdbcType=");
+				sb.append(fieldInfo.getJdbcType()).append("},");
+				setNode.appendChild(doc.createTextNode(sb.toString()));
+			} else {
+				Element ife = doc.createElement("if");
+				StringBuffer sb = new StringBuffer();
+				sb.append("record.").append(fieldInfo.getFieldName()).append("!= null");
+				ife.setAttribute("test", sb.toString());
+				sb = new StringBuffer();
+				sb.append(fieldInfo.getColumn()).append(" = #{record.").append(fieldInfo.getFieldName());
+				sb.append(",jdbcType=").append(fieldInfo.getJdbcType()).append("},");
+				ife.appendChild(doc.createTextNode(sb.toString()));
+				setNode.appendChild(ife);
+			}
+
+
 		}
 
 		node.appendChild(setNode);

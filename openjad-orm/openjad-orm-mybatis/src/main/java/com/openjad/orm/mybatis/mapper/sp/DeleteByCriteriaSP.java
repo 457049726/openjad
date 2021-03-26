@@ -4,12 +4,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-/**
- * deleteByCriteria 节点
- * 
- *  @author hechuan
- *
- */
 public class DeleteByCriteriaSP extends MapperItemSP {
 
 	public DeleteByCriteriaSP(MapperSP mapperSP) {
@@ -18,7 +12,7 @@ public class DeleteByCriteriaSP extends MapperItemSP {
 
 	/*
 	 * <delete id="deleteByCriteria"
-	 * parameterType="com.jad.orm.criterion.WhereCriteria" >
+	 * parameterType="com.jad.dao.criterion.WhereCriteria" >
 	 * delete from m_rpc_exception
 	 * <if test="_parameter != null" >
 	 * <include refid="Xr_Where_Clause" />

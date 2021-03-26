@@ -33,6 +33,8 @@ public class AbstractApplicationRunListener implements SpringApplicationRunListe
 	protected SpringApplication application;
 
 	protected String[] args;
+	
+//	public static ConfigurableEnvironment ENVIRONMENT;
 
 	public AbstractApplicationRunListener(SpringApplication application, String[] args) {
 		this.application = application;
@@ -49,14 +51,24 @@ public class AbstractApplicationRunListener implements SpringApplicationRunListe
 
 	@Override
 	public void environmentPrepared(ConfigurableEnvironment environment) {
+		if (isBootstrapContext(environment)) {
+			return;
+		}
+//		ENVIRONMENT = environment;
 	}
 
 	@Override
 	public void contextPrepared(ConfigurableApplicationContext context) {
+		if (isBootstrapContext(context)) {
+			return;
+		}
 	}
 	
 	@Override
 	public void contextLoaded(ConfigurableApplicationContext context) {
+		if (isBootstrapContext(context)) {
+			return;
+		}
 	}
 
 	/**
@@ -64,6 +76,9 @@ public class AbstractApplicationRunListener implements SpringApplicationRunListe
 	 */
 	@Override
 	public void started(ConfigurableApplicationContext context) {
+		if (isBootstrapContext(context)) {
+			return;
+		}
 		sysStarted(context);
 	}
 

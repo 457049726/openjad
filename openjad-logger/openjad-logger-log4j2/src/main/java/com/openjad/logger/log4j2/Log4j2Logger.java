@@ -17,6 +17,7 @@ import com.openjad.logger.api.support.FailsafeLogger;
  */
 public class Log4j2Logger extends AbstractLogger {
 
+	//这里必须用 FailsafeLogger 
 	private static final String FQCN = FailsafeLogger.class.getName();
 
 	private static final String MORE_MSG_MDC_KEY = "jadMoreLog";
@@ -29,77 +30,89 @@ public class Log4j2Logger extends AbstractLogger {
 
 	@Override
 	public void trace(String msg) {
-		logIfMore(Level.TRACE, msg,null, null);
+		logIfEnabled(Level.TRACE,msg, null, null);
+		
 	}
 
 	@Override
 	public void trace(Throwable e) {
-		logIfMore(Level.TRACE, null,null, e);
+		logIfEnabled(Level.TRACE,null, null, e);
+		
 	}
 
 	@Override
 	public void trace(String msg, Throwable e) {
-		logIfMore(Level.TRACE, msg,null, e);
+		logIfEnabled(Level.TRACE,msg, null, e);
+		
 	}
 
 	@Override
 	public void debug(String msg) {
-		logIfMore(Level.DEBUG, msg,null, null);
+		logIfEnabled(Level.DEBUG,msg, null, null);
+		
 	}
 
 	@Override
 	public void debug(Throwable e) {
-		logIfMore(Level.DEBUG, null, null,e);
+		logIfEnabled(Level.DEBUG,null, null, e);
+		
 	}
 
 	@Override
 	public void debug(String msg, Throwable e) {
-		logIfMore(Level.DEBUG, msg, null,e);
+		logIfEnabled(Level.DEBUG,msg, null, e);
+		
 	}
 
 	@Override
 	public void info(String msg) {
-		logIfMore(Level.INFO, msg, null,null);
+		logIfEnabled(Level.INFO,msg, null, null);
+		
 	}
 
 	@Override
 	public void info(Throwable e) {
-		logIfMore(Level.INFO, null, null,e);
+		logIfEnabled(Level.INFO,null, null, e);
+		
 	}
 
 	@Override
 	public void info(String msg, Throwable e) {
-		logIfMore(Level.INFO, msg, null,e);
+		logIfEnabled(Level.INFO,msg, null, e);
+		
 	}
 
 	@Override
 	public void warn(String msg) {
-		logIfMore(Level.WARN, msg, null,null);
+		logIfEnabled(Level.WARN, msg, null, null);
+		
 	}
 
 	@Override
 	public void warn(Throwable e) {
-		logIfMore(Level.WARN, null, null,e);
+		logIfEnabled(Level.WARN, null, null, e);
 	}
 
 	@Override
 	public void warn(String msg, Throwable e) {
-		logIfMore(Level.WARN, msg, null,e);
+		logIfEnabled(Level.WARN, msg, null, e);
 	}
 
 	@Override
 	public void error(String msg) {
-		logIfMore(Level.ERROR, msg, null,null);
+		logIfEnabled(Level.ERROR,msg, null, null);
+		
 	}
 
 	@Override
 	public void error(Throwable e) {
-		logIfMore(Level.ERROR, null,null, e);
+		logIfEnabled(Level.ERROR,null, null, e);
 	}
 
 	@Override
 	public void error(String msg, Throwable e) {
-		logIfMore(Level.ERROR, msg, null,e);
+		logIfEnabled(Level.ERROR,msg, null, e);
+		
 	}
 
 	@Override
@@ -129,120 +142,138 @@ public class Log4j2Logger extends AbstractLogger {
 
 	@Override
 	public void trace(BaseLogCode logMsg) {
-		logIfMore(Level.TRACE, null, logMsg, null);
+		logIfEnabled(Level.TRACE, null, logMsg, null);
 	}
 
 	@Override
 	public void trace(BaseLogCode logMsg, String msg) {
-		logIfMore(Level.TRACE, msg, logMsg, null);
+		logIfEnabled(Level.TRACE, msg, logMsg, null);
 	}
 
 	@Override
 	public void trace(BaseLogCode logMsg, Throwable e) {
-		logIfMore(Level.TRACE, null, logMsg, e);
+		logIfEnabled(Level.TRACE, null, logMsg, e);
+		
 	}
 
 	@Override
 	public void trace(BaseLogCode logMsg, String msg, Throwable e) {
-		logIfMore(Level.TRACE, msg, logMsg, e);
+		logIfEnabled(Level.TRACE, msg, logMsg, e);
+		
 	}
 
 	@Override
 	public void debug(BaseLogCode logMsg) {
-		logIfMore(Level.DEBUG, null, logMsg, null);
+		logIfEnabled(Level.DEBUG,  null, logMsg, null);
+		
 	}
 
 	@Override
 	public void debug(BaseLogCode logMsg, String msg) {
-		logIfMore(Level.DEBUG, msg, logMsg, null);
+		logIfEnabled(Level.DEBUG,  msg, logMsg, null);
+		
 	}
 
 	@Override
 	public void debug(BaseLogCode logMsg, Throwable e) {
-		logIfMore(Level.DEBUG, null, logMsg, e);
+		logIfEnabled(Level.DEBUG,  null, logMsg, e);
+		
 	}
 
 	@Override
 	public void debug(BaseLogCode logMsg, String msg, Throwable e) {
-		logIfMore(Level.DEBUG, msg, logMsg, e);
+		logIfEnabled(Level.DEBUG,  msg, logMsg, e);
+		
 	}
 
 	@Override
 	public void info(BaseLogCode logMsg) {
-		logIfMore(Level.INFO, null, logMsg, null);
+		logIfEnabled(Level.INFO, null, logMsg, null);
+		
 	}
 
 	@Override
 	public void info(BaseLogCode logMsg, String msg) {
-		logIfMore(Level.INFO, msg, logMsg, null);
+		logIfEnabled(Level.INFO, msg, logMsg, null);
+		
 	}
 
 	@Override
 	public void info(BaseLogCode logMsg, Throwable e) {
-		logIfMore(Level.INFO, null, logMsg, e);
+		logIfEnabled(Level.INFO, null, logMsg, e);
+		
 	}
 
 	@Override
 	public void info(BaseLogCode logMsg, String msg, Throwable e) {
-		logIfMore(Level.INFO, msg, logMsg, e);
+		logIfEnabled(Level.INFO, msg, logMsg, e);
+		
 	}
 
 	@Override
 	public void warn(BaseLogCode logMsg) {
-		logIfMore(Level.WARN, null, logMsg, null);
+		logIfEnabled(Level.WARN,null, logMsg, null);
+		
 	}
 
 	@Override
 	public void warn(BaseLogCode logMsg, String msg) {
-		logIfMore(Level.WARN, msg, logMsg, null);
+		logIfEnabled(Level.WARN,msg, logMsg, null);
+		
 	}
 
 	@Override
 	public void warn(BaseLogCode logMsg, Throwable e) {
-		logIfMore(Level.WARN, null, logMsg, e);
+		logIfEnabled(Level.WARN,null, logMsg, e);
+		
 	}
 
 	@Override
 	public void warn(BaseLogCode logMsg, String msg, Throwable e) {
-		logIfMore(Level.WARN, msg, logMsg, e);
+		logIfEnabled(Level.WARN,msg, logMsg, e);
+		
 	}
 
 	@Override
 	public void error(BaseLogCode logMsg) {
-		logIfMore(Level.ERROR, null, logMsg, null);
+		logIfEnabled(Level.ERROR,null, logMsg, null);
+		
 	}
 
 	@Override
 	public void error(BaseLogCode logMsg, String msg) {
-		logIfMore(Level.ERROR, msg, logMsg, null);
+		logIfEnabled(Level.ERROR,msg, logMsg, null);
+		
 	}
 
 	@Override
 	public void error(BaseLogCode logMsg, Throwable e) {
-		logIfMore(Level.ERROR, null, logMsg, e);
+		logIfEnabled(Level.ERROR,null, logMsg, e);
+		
 	}
 
 	@Override
 	public void error(BaseLogCode logMsg, String msg, Throwable e) {
-		logIfMore(Level.ERROR, msg, logMsg, e);
+		logIfEnabled(Level.ERROR,msg, logMsg, e);
+		
 	}
 
-	private void logIfMore(Level level, String message, BaseLogCode logMsg, Throwable e) {
+	private void logIfEnabled(Level level,String message, BaseLogCode logMsg, Throwable e) {
 		boolean flag = false;
 		try {
-			String more = getMsgForMore(logMsg,e);
+			String more = getMsgForMore(logMsg, e);
 			if (more != null) {
 				flag = true;
 				putMoreToMDC(more);
 			}
-			
+
 			if (message == null && logMsg != null) {
 				message = logMsg.getValue();
 			}
 			if ((message == null || "".equals(message)) && e != null) {
 				message = e.getMessage();
 			}
-			
+
 			logger.logIfEnabled(FQCN, level, null, message, e);
 		} finally {
 			if (flag) {
@@ -251,16 +282,15 @@ public class Log4j2Logger extends AbstractLogger {
 		}
 	}
 
-
-	private String getMsgForMore(BaseLogCode logMsg,Throwable e) {
-		if(logMsg!=null){
+	private String getMsgForMore(BaseLogCode logMsg, Throwable e) {
+		if (logMsg != null) {
 			return getMsgForMore(logMsg);
-		}else if(e!=null){
+		} else if (e != null) {
 			return getMsgForMore(e);
 		}
 		return null;
 	}
-	
+
 	private String getMsgForMore(BaseLogCode logMsg) {
 		if (logMsg == null || !logMsg.isUrlForMore()) {
 			return null;

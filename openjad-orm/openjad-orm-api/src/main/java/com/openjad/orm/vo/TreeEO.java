@@ -1,23 +1,27 @@
 package com.openjad.orm.vo;
 
 import java.io.Serializable;
+import java.util.List;
 
-public interface TreeEO<EO extends BaseEO, ID extends Serializable> extends BaseEO {
+public interface TreeEO<ID extends Serializable,EO extends BaseEO> extends BaseEO, IdEO<ID> {
 
-	public ID getParentId();
+	
+	ID getParentId();
 
-	public void setParentId(ID parentId);
+	void setParentId(ID parentId);
 
-	public String getParentIds();
+	String getParentIds();
 
-	public void setParentIds(String parentIds);
+	void setParentIds(String parentIds);
+	
+	List<EO> getChildren();
 
-	public String getName();
+	void setChildren(List<EO> children) ;
+	
+	
+	Integer getLevel() ;
 
-	public void setName(String name);
+	void setLevel(Integer level) ;
 
-	public Integer getSort();
-
-	public void setSort(Integer sort);
 
 }

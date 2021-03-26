@@ -20,7 +20,7 @@
 			<version>${project.version}</version>
 		</dependency>
 		
-		
+		<!-- 
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatisplus-spring-boot-starter</artifactId>
@@ -31,6 +31,7 @@
 			<artifactId>mybatis-plus</artifactId>
 			<version>${mybatisplus.version}</version>
 		</dependency>
+		 -->
 		
 		<!-- jpa依赖 -->
 		<dependency>
@@ -39,10 +40,17 @@
 			<version>${hibernate.jpa.api.version}</version>
 		</dependency>
 
+		<!-- spring jdbc -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot</artifactId>
-			<scope>provided</scope>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.zaxxer</groupId>
+					<artifactId>HikariCP</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
 	</dependencies>
 </project>

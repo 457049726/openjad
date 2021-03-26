@@ -12,12 +12,15 @@ import javax.persistence.Table;
 import com.openjad.common.util.reflection.ReflectUtils;
 import com.openjad.logger.api.Logger;
 import com.openjad.logger.api.LoggerFactory;
+import com.openjad.orm.annotation.DelStrategy;
+import com.openjad.orm.annotation.KeyGenStrategy;
+import com.openjad.orm.annotation.OrganizeStrategy;
 import com.openjad.orm.dialect.db.AbstractDialect;
-import com.openjad.orm.enums.KeyGenStrategy;
 import com.openjad.orm.exception.JadEntityParseException;
 import com.openjad.orm.mybatis.constant.MybatisLogCode;
 import com.openjad.orm.mybatis.entity.EoFieldInfo;
 import com.openjad.orm.mybatis.entity.EoMetaInfo;
+import com.openjad.orm.mybatis.entity.OrganizeStrategyInfo;
 import com.openjad.orm.mybatis.parse.EoInfoParser;
 import com.openjad.orm.mybatis.utils.EntityUtils;
 
@@ -95,13 +98,27 @@ public class EoInfoAnnotationParser implements EoInfoParser {
 		}
 		if (tableName == null) {
 			tableName = clazz.getSimpleName();
-			logger.warn(
-					MybatisLogCode.CODE_00007,
+			logger.warn(MybatisLogCode.CODE_00007,
 					String.format("实体类:%s没有通过@Table注解指定表名,使用类名%s作为表名", clazz.getName(), tableName));
 		}
-
+		
+		DelStrategy delStrategy = (DelStrategy) clazz.getAnnotation(DelStrategy.class);
 		EoMetaInfo eoInfo = new EoMetaInfo(clazz);
 		eoInfo.setTableName(tableName);
+		
+		OrganizeStrategy organizeStrategy = (OrganizeStrategy)clazz.getAnnotation(OrganizeStrategy.class);
+		if(organizeStrategy!=null) {
+			try {
+				eoInfo.setOrganizeStrategyInfo(OrganizeStrategyInfo.valueFormOrganizeStrategy(organizeStrategy));
+			} catch (Exception e) {
+				String error="无法识别类["+clazz.getName()+"]的组织策略，因为["+e.getMessage()+"]";
+				throw new RuntimeException(error,e);
+			}
+		}
+		
+		if(delStrategy!=null) {
+			eoInfo.setDelStrategy(delStrategy.value());
+		}
 
 		KeyGenStrategy keyGenStrategy = (KeyGenStrategy) clazz.getAnnotation(KeyGenStrategy.class);
 		if (keyGenStrategy != null) {

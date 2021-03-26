@@ -7,7 +7,7 @@ import org.w3c.dom.Node;
 import com.openjad.orm.mybatis.entity.EoFieldInfo;
 
 /*
- * updateByIdAllColumn 节点
+ * 
  *   <update id="updateByIdAllColumn"   >
     update m_rpc_exception 
     set 

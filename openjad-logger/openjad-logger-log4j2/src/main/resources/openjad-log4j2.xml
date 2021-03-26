@@ -10,11 +10,12 @@
 
 	<Appenders>
 		
+		<!-- RollingFile -->
 		<!--文件日志，注意必须是 RollingRandomAccessFile 标签才能跟据日期切割 -->
 		<RollingRandomAccessFile name="file"
 			fileName="${LOG_HOME}${FILE_NAME}.log"
 			filePattern="${LOG_HOME}%d{yyyy-MM-dd}/${FILE_NAME}.log.%d{yyyy-MM-dd-HH}"
-			immediateFlush="false" append="true">
+			immediateFlush="true" append="true">
 			<PatternLayout
 				pattern="%d{DEFAULT} [%t] %-5level %class:%L %M %X{appName} %X{spanId} %X{parentId} %X{traceId} - %msg%xEx%n %X{jadMoreLog}"
 				charset="UTF-8" />
@@ -45,9 +46,9 @@
 
 		<AsyncLogger name="com.ctrip" level="warn" />
 
-		<AsyncLogger name="org.springframework" level="warn" />
+		<AsyncLogger name="org.springframework" level="info" />
 
-		<AsyncLogger name="org.mybatis" level="debug" />
+		<AsyncLogger name="org.mybatis" level="warn" />
 
 		<AsyncLogger name="org.apache" level="warn" />
 		<AsyncLogger name="com.alibaba" level="warn" />
@@ -55,6 +56,8 @@
 		<AsyncLogger name="org.hibernate.validator" level="warn" />
 
 		<AsyncLogger name="com.openjad" level="debug" />
+		
+		<AsyncLogger name="org.dozer" level="warn" />
 
 	</Loggers>
 </Configuration>

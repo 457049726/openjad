@@ -7,10 +7,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.core.io.Resource;
 
-import com.openjad.orm.mybatis.constant.MybatisLogCode;
-import com.openjad.orm.mybatis.scanner.JadMapperScannerConfigurer;
 import com.openjad.logger.api.Logger;
 import com.openjad.logger.api.LoggerFactory;
+import com.openjad.orm.mybatis.scanner.JadMapperScannerConfigurer;
 
 
 /**
@@ -20,34 +19,37 @@ import com.openjad.logger.api.LoggerFactory;
  *
  */
 public class JadSqlSessionFactoryBean extends SqlSessionFactoryBean {
-	
-	private static final Logger logger = LoggerFactory.getLogger(JadSqlSessionFactoryBean.class);
 
-	protected SqlSessionFactory buildSqlSessionFactory() throws Exception {
+//	private static final Logger logger = LoggerFactory.getLogger(JadSqlSessionFactoryBean.class);
+
+//	private Resource[] mapperLocations;
+	
+	protected SqlSessionFactory buildSqlSessionFactory() throws IOException {
 		SqlSessionFactory sqlSessionFactory = super.buildSqlSessionFactory();
-		try {
-			//把  mapperLocations 属性偷偷地记下来
-			Resource[] mapperLocations = (Resource[]) getSuperPrivateField("mapperLocations");
-			if(mapperLocations!=null){
-				JadMapperScannerConfigurer.setMapperLocations(mapperLocations);
-			}
-			
-		} catch (Exception e) {
-			logger.warn(MybatisLogCode.CODE_00014,"获取 mapperLocations配置失败,"+e.getMessage(),e);
-		}
+//		try {
+//			// 把 mapperLocations 属性记下来
+//			Resource[] mapperLocations = (Resource[]) getSuperPrivateField("mapperLocations");
+//			if (mapperLocations != null) {
+////				JadMapperScannerConfigurer.setMapperLocations(mapperLocations);
+//				this.mapperLocations=mapperLocations;
+//			}
+//		} catch (Exception e) {
+//			logger.warn("获取 mapperLocations 配置失败," + e.getMessage(), e);
+//		}
 		return sqlSessionFactory;
 	}
-	
-	/**
-	 * 获取父类私有属性
-	 * @param name 属性名
-	 * @return 属性值
-	 * @throws Exception 获取失败
-	 */
-	private <T> T getSuperPrivateField(String name) throws Exception {
-		Field field = SqlSessionFactoryBean.class.getDeclaredField(name);
-		field.setAccessible(true);
-		return (T) field.get(this);
-	}
+
+//	private <T> T getSuperPrivateField(String name) throws Exception {
+//		Field field = SqlSessionFactoryBean.class.getDeclaredField(name);
+//		field.setAccessible(true);
+//		return (T) field.get(this);
+//	}
+//
+//	public Resource[] getMapperLocations() {
+//		return mapperLocations;
+//	}
 
 }
+
+
+

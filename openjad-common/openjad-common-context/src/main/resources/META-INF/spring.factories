@@ -1,5 +1,6 @@
-
 org.springframework.boot.SpringApplicationRunListener=\
 com.openjad.common.spring.boot.ApplicationBannerRunListener,\
 com.openjad.common.spring.boot.ApplicationStartedRunListener,\
 com.openjad.common.spring.boot.ApplicationContextPreparedRunListener
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.openjad.common.spring.boot.BasePackageAutoConfiguration

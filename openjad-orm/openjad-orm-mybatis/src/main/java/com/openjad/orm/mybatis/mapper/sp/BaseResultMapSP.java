@@ -9,9 +9,7 @@ import org.w3c.dom.Node;
 import com.openjad.orm.mybatis.entity.EoFieldInfo;
 
 /*
- * BaseResultMap 节点
- * 
- * <resultMap id="BaseResultMap" type="com.jad.orm.mybatis.eo.RpcExceptionTraceDO" >
+ * <resultMap id="BaseResultMap" type="com.jad.dao.mybatis.eo.RpcExceptionTraceDO" >
  * <id column="id" property="id" jdbcType="BIGINT" />
  * <result column="request_id" property="requestId" jdbcType="VARCHAR" />
  * <result column="side" property="side" jdbcType="VARCHAR" />
@@ -45,8 +43,10 @@ public class BaseResultMapSP extends MapperItemSP {
 			}
 			String column = fieldInfo.getColumn();
 			String javaType = fieldInfo.getFieldType().getName();
+			String property = fieldInfo.getFieldName();
 			String jdbcType = fieldInfo.getJdbcType();
-			node.appendChild(getResultNode(doc, "id", column, javaType, jdbcType));
+//			node.appendChild(getResultNode(doc, "id", column, javaType, jdbcType));
+			node.appendChild(getResultNode(doc, "id", column, property, jdbcType));
 		}
 		
 		for (Map.Entry<String, EoFieldInfo> ent : mapperSP.getEoMetaInfo().getFieldInfoMap().entrySet()) {
@@ -58,8 +58,10 @@ public class BaseResultMapSP extends MapperItemSP {
 			String column = fieldInfo.getColumn();
 			String javaType = fieldInfo.getJavaType();
 			String jdbcType = fieldInfo.getJdbcType();
+			String property = fieldInfo.getFieldName();
 			
-			node.appendChild(getResultNode(doc, "result", column, javaType, jdbcType));
+//			node.appendChild(getResultNode(doc, "result", column, javaType, jdbcType));
+			node.appendChild(getResultNode(doc, "result", column, property, jdbcType));//修复一个 bug
 			
 		}
 

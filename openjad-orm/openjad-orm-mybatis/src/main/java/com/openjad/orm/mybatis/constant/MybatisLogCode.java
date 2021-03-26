@@ -34,8 +34,8 @@ public class MybatisLogCode extends BaseLogCode {
 	
 	public static final MybatisLogCode CODE_00016 = new MybatisLogCode("00016", "注册jad-dao失败，程序异常退出");
 	public static final MybatisLogCode CODE_00017 = new MybatisLogCode("00017", "无法识别主键类型");
-	public static final MybatisLogCode CODE_00018 = new MybatisLogCode("00018", "");
-	public static final MybatisLogCode CODE_00019 = new MybatisLogCode("00019", "");
+//	public static final MybatisLogCode CODE_00018 = new MybatisLogCode("00018", "");
+//	public static final MybatisLogCode CODE_00019 = new MybatisLogCode("00019", "");
 	
 	
 	public static final MybatisLogCode CODE_00030 = new MybatisLogCode("00030", "因为存在下级节点而无法删除");

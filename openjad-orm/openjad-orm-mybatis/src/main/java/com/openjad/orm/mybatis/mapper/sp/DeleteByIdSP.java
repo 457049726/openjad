@@ -8,8 +8,6 @@ import com.openjad.orm.mybatis.entity.EoFieldInfo;
 
 /*
  * 
- * deleteById 节点
- * 
  *   <delete id="deleteById" parameterType="Long" >
     delete from m_rpc_exception where id = #{id,jdbcType=BIGINT}
   </delete>

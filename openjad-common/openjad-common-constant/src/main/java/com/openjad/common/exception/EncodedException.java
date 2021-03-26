@@ -40,19 +40,19 @@ public class EncodedException extends RuntimeException {
 	}
 
 	public EncodedException() {
-		this(FrameworkCode.CODE_09999);
+		this(FrameworkCode.CODE_99999);
 	}
 
 	public EncodedException(String message, Throwable cause) {
-		this(FrameworkCode.CODE_09999, message, cause);
+		this(FrameworkCode.CODE_99999, message, cause);
 	}
 
 	public EncodedException(String message) {
-		this(FrameworkCode.CODE_09999, message);
+		this(FrameworkCode.CODE_99999, message);
 	}
 
 	public EncodedException(Throwable cause) {
-		this(FrameworkCode.CODE_09999, cause);
+		this(FrameworkCode.CODE_99999, cause);
 	}
 
 	public AbstractCode getCode() {

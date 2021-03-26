@@ -12,5 +12,6 @@
   <modules>
   	<module>openjad-logger-api</module>
   	<module>openjad-logger-log4j2</module>
+  	<module>openjad-logger-logback</module>
   </modules>
 </project>

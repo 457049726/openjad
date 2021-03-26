@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.openjad.orm.mybatis.dao.CatalogMapper">
+  <resultMap id="BaseResultMap" type="com.openjad.orm.mybatis.eo.Catalog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <!-- 
+    <association column="id" jdbcType="INTEGER" property="catalog" select="selectByPid"/>
+     -->
+  </resultMap>
+  <select id="selectByPid" resultMap="BaseResultMap">
+    select id,name,pid from catalog where pid=#{id}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id,name from catalog where pid=11
+  </select>
+</mapper>
+

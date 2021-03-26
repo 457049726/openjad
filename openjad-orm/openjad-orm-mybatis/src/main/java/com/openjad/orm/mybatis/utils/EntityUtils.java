@@ -12,6 +12,9 @@ import com.openjad.orm.mybatis.entity.EoFieldInfo;
 import com.openjad.orm.mybatis.entity.EoMetaInfo;
 import com.openjad.orm.mybatis.entity.WhereCondition;
 import com.openjad.orm.mybatis.parse.impl.EoInfoAnnotationParser;
+import com.openjad.orm.vo.BaseEO;
+import com.openjad.common.exception.BizException;
+import com.openjad.orm.constant.OrmLogCode;
 import com.openjad.orm.enums.QueryOperateType;
 import com.openjad.orm.exception.JadEntityParseException;
 
@@ -54,6 +57,20 @@ public class EntityUtils {
 			ei = initEoInfo(clazz);
 		}
 		return ei;
+	}
+	
+	/**
+	 * 生成一个eo实例
+	 * @param <EO> eo
+	 * @param clazz eo类型
+	 * @return 返回 eo 实例
+	 */
+	public static <EO extends BaseEO>EO  newEoInstance(Class clazz){
+		try {
+			return (EO)clazz.newInstance();
+		}catch (Exception e) {
+			throw new BizException(OrmLogCode.CODE_00005,OrmLogCode.CODE_00005.getValue()+",class:"+clazz.getName());
+		}
 	}
 
 	/**

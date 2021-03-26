@@ -5,8 +5,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 /*
- *  updateByCriteriaAllColumn 节点
- *  
+ * 
  *   <update id="updateByCriteriaAllColumn"   >
     update m_rpc_exception set 
       <include refid="updateAllColumn" />

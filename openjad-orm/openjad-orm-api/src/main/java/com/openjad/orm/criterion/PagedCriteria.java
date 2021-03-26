@@ -2,6 +2,8 @@ package com.openjad.orm.criterion;
 
 import java.util.ArrayList;
 
+import com.openjad.common.page.PageAble;
+
 /**
  * 分页查询条件
  * 
@@ -41,8 +43,15 @@ public class PagedCriteria extends SelectCriteria {
 	private String countSqlFragment;
 	
     public PagedCriteria() {
-        oredCriteria = new ArrayList<Criteria>();
+    	this.oredCriteria = new ArrayList<Criteria>();
     }
+    
+    public PagedCriteria(PageAble pageAble) {
+    	this.pageNo=pageAble.getPageNo();
+    	this.pageSize=pageAble.getPageSize();
+        this.oredCriteria = new ArrayList<Criteria>();
+    }
+    
 
     public Criteria or(Criteria criteria) {
         oredCriteria.add(criteria);

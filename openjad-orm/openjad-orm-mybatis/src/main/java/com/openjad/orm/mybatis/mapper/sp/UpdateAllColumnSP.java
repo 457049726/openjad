@@ -4,13 +4,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import com.openjad.orm.mybatis.entity.EoFieldInfo;
 import com.openjad.orm.enums.IdType;
+import com.openjad.orm.mybatis.entity.EoFieldInfo;
 
 
 /*
- * updateAllColumn 节点 
- * 
  *  <sql id="updateAllColumn" >
    request_id = #{record.requestId,jdbcType=VARCHAR},
    side = #{record.side,jdbcType=VARCHAR},   heap_stack = #{record.heapStack,jdbcType=VARCHAR},

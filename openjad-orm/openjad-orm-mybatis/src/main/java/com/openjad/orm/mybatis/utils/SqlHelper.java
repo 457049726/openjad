@@ -297,8 +297,8 @@ public class SqlHelper {
 	 * @return 别名
 	 */
 	public static String getDefAlias(EoMetaInfo ei) {
-//		return StringUtils.uncapitalize(ei.getMetaClass().getSimpleName());
-		return "a";
+		return StringUtils.uncapitalize(ei.getMetaClass().getSimpleName());
+//		return "a";
 	}
 
 }

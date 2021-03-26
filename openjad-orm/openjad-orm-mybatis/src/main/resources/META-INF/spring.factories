@@ -1,3 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.openjad.orm.mybatis.autoconfigure.JadMybatisAutoConfiguration
+com.openjad.orm.mybatis.autoconfigure.MybatisAutoConfiguration,\
+com.openjad.orm.mybatis.autoconfigure.DruidDataSourceAutoConfiguration

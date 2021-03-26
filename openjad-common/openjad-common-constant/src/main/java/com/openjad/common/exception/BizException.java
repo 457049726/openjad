@@ -1,5 +1,6 @@
 package com.openjad.common.exception;
 
+import com.openjad.common.constant.FrameworkCode;
 import com.openjad.common.constant.cv.AbstractCode;
 
 /**
@@ -12,7 +13,7 @@ import com.openjad.common.constant.cv.AbstractCode;
 public class BizException extends EncodedException {
 
 	public BizException() {
-		super();
+		super(FrameworkCode.CODE_39999);
 	}
 
 	public BizException(AbstractCode code, String message, Throwable cause) {
@@ -32,15 +33,15 @@ public class BizException extends EncodedException {
 	}
 
 	public BizException(String message, Throwable cause) {
-		super(message, cause);
+		super(FrameworkCode.CODE_39999,message, cause);
 	}
 
 	public BizException(String message) {
-		super(message);
+		super(FrameworkCode.CODE_39999,message);
 	}
 
 	public BizException(Throwable cause) {
-		super(cause);
+		super(FrameworkCode.CODE_39999,cause);
 	}
 
 }

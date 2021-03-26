@@ -9,12 +9,9 @@ import com.openjad.orm.mybatis.utils.SqlHelper;
 
 
 /*
- * 
- * getById 节点
- * 
  *   <select id="getById" resultMap="BaseResultMap" parameterType="Long" >
     select 
-    <include refid="Jad_Base_Column_List" />
+    <include refid="Base_Column_List" />
     from m_rpc_exception where id = #{id,jdbcType=BIGINT}
   </select>
  *
@@ -39,7 +36,7 @@ public class GetByIdSP extends MapperItemSP {
 		node.appendChild(doc.createTextNode("\n select "));
 
 		Element include = doc.createElement("include");
-		include.setAttribute("refid", "Jad_Base_Column_List");
+		include.setAttribute("refid", "Base_Column_List");
 		node.appendChild(include);
 
 		String tableName = mapperSP.getEoMetaInfo().getTableName();

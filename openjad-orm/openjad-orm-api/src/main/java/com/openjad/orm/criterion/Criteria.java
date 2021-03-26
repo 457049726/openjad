@@ -147,7 +147,7 @@ public class Criteria {
 		return (Criteria) this;
 	}
 
-	public Criteria andIn(List<Object> values, String column) {
+	public Criteria andIn(List<?> values, String column) {
 		addCriterion(column + " in", values, column, DEF_IGNORE_NULL);
 		return (Criteria) this;
 	}
@@ -176,22 +176,34 @@ public class Criteria {
 	}
 
 	public Criteria andLeftLike(String value, String column) {
-		addCriterion(column + " like '" + value + "%'");
+		if (value != null) {
+			addCriterion(column + " like '" + value + "%'");
+		}
+		
 		return (Criteria) this;
 	}
-	
+
 	public Criteria andRightLike(String value, String column) {
-		addCriterion(column + " like '%" + value + "'");
+		if (value != null) {
+			addCriterion(column + " like '%" + value + "'");
+		}
+		
 		return (Criteria) this;
 	}
-	
+
 	public Criteria andLike(String value, String column) {
-		addCriterion(column + " like '%" + value + "%'");
+		if (value != null) {
+			addCriterion(column + " like '%" + value + "%'");
+		}
+		
 		return (Criteria) this;
 	}
 
 	public Criteria andNotLike(String value, String column) {
-		addCriterion(column + " not like '%" + value + "%'");
+		if (value != null) {
+			addCriterion(column + " not like '%" + value + "%'");
+		}
+		
 		return (Criteria) this;
 	}
 

@@ -1,0 +1,382 @@
+package com.openjad.orm.criterion;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.openjad.logger.api.Logger;
+import com.openjad.logger.api.LoggerFactory;
+
+public class Criteria {
+
+	private static final Logger logger = LoggerFactory.getLogger(Criteria.class);
+
+//	private static final boolean DEF_IGNORE_NULL = true;
+//	private static final boolean DEF_IGNORE_NULL = false; //20200616默认不忽略
+
+	private boolean ignoreNull = false;// 20200617 是否忽略空值
+	private boolean ignoreBlank = false;// 是否忽略空白数据
+
+	protected List<Criterion> criteria;
+
+	public Criteria() {
+		super();
+		criteria = new ArrayList<Criterion>();
+	}
+
+	public boolean isValid() {
+		return criteria.size() > 0;
+	}
+
+	public List<Criterion> getAllCriteria() {
+		return criteria;
+	}
+
+	public List<Criterion> getCriteria() {
+		return criteria;
+	}
+
+	public void addCriterion(String condition) {
+		if (condition == null) {
+			throw new RuntimeException("condition  cannot be null");
+		}
+		criteria.add(new Criterion(condition));
+	}
+
+	public void addCriterion(String condition, Object value, String column, boolean ignoreNull, boolean ignoreBlank) {
+		if (condition == null) {
+			throw new RuntimeException("condition cannot be null");
+		}
+
+		// 忽略空值
+		if (value == null && ignoreNull) {
+			logger.warn("列[" + column + "]上的条件被忽略,因为值为空");
+			return;
+		}
+
+		if (ignoreBlank && value != null && "".equals(value.toString().trim())) {
+			logger.warn("列[" + column + "]上的条件被忽略,因为值为空白字符串");
+			return;
+		}
+		if (value == null) {
+			logger.debug("列[" + column + "]上的条件被增加null值，这在 select语句中可能被忽略，但在update和delete语句中直接传入空参数");
+		}
+
+		criteria.add(new Criterion(condition, value));
+	}
+
+	public void addCriterion(String condition, Object value, String column, boolean ignoreNull) {
+		addCriterion(condition, value, column, ignoreNull, ignoreBlank);
+	}
+
+	public void addCriterion(String condition, Object value1, Object value2, String column) {
+		if (value1 == null || value2 == null) {
+			throw new RuntimeException("Between values for " + column + " cannot be null");
+		}
+		criteria.add(new Criterion(condition, value1, value2));
+	}
+
+	public Criteria andIsNull(String column) {
+		addCriterion(column + " is null");
+		return (Criteria) this;
+	}
+
+	public Criteria andIsNotNull(String column) {
+		addCriterion(column + " is not null");
+		return (Criteria) this;
+	}
+
+//	-------------
+
+	public Criteria andEqualTo(Object value, String column, boolean ignoreNull, boolean ignoreBlank) {
+		addCriterion(column + " =", value, column, ignoreNull, ignoreBlank);
+		return (Criteria) this;
+	}
+
+	public Criteria andNotEqualTo(Object value, String column, boolean ignoreNull, boolean ignoreBlank) {
+		addCriterion(column + " <>", value, column, ignoreNull, ignoreBlank);
+		return (Criteria) this;
+	}
+
+	public Criteria andGreaterThan(Object value, String column, boolean ignoreNull, boolean ignoreBlank) {
+		addCriterion(column + " >", value, column, ignoreNull, ignoreBlank);
+		return (Criteria) this;
+	}
+
+	public Criteria andGreaterThanOrEqualTo(Object value, String column, boolean ignoreNull, boolean ignoreBlank) {
+		addCriterion(column + " >=", value, column, ignoreNull, ignoreBlank);
+		return (Criteria) this;
+	}
+
+	public Criteria andLessThan(Object value, String column, boolean ignoreNull, boolean ignoreBlank) {
+		addCriterion(column + " <", value, column, ignoreNull, ignoreBlank);
+		return (Criteria) this;
+	}
+
+	public Criteria andLessThanOrEqualTo(Object value, String column, boolean ignoreNull, boolean ignoreBlank) {
+		addCriterion(column + " <=", value, column, ignoreNull, ignoreBlank);
+		return (Criteria) this;
+	}
+
+	public Criteria andIn(List<Object> values, String column, boolean ignoreNull, boolean ignoreBlank) {
+		addCriterion(column + " in", values, column, ignoreNull, ignoreBlank);
+		return (Criteria) this;
+	}
+
+	public Criteria andNotIn(List<Object> values, String column, boolean ignoreNull, boolean ignoreBlank) {
+		addCriterion(column + " not in", values, column, ignoreNull, ignoreBlank);
+		return (Criteria) this;
+	}
+
+//	------------------
+
+	public Criteria andEqualTo(Object value, String column, boolean ignoreNull) {
+		addCriterion(column + " =", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andNotEqualTo(Object value, String column, boolean ignoreNull) {
+		addCriterion(column + " <>", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andGreaterThan(Object value, String column, boolean ignoreNull) {
+		addCriterion(column + " >", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andGreaterThanOrEqualTo(Object value, String column, boolean ignoreNull) {
+		addCriterion(column + " >=", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andLessThan(Object value, String column, boolean ignoreNull) {
+		addCriterion(column + " <", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andLessThanOrEqualTo(Object value, String column, boolean ignoreNull) {
+		addCriterion(column + " <=", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andIn(List<Object> values, String column, boolean ignoreNull) {
+		addCriterion(column + " in", values, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andNotIn(List<Object> values, String column, boolean ignoreNull) {
+		addCriterion(column + " not in", values, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+//	==========
+	public Criteria andEqualTo(Object value, String column) {
+		addCriterion(column + " =", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andNotEqualTo(Object value, String column) {
+		addCriterion(column + " <>", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andGreaterThan(Object value, String column) {
+		addCriterion(column + " >", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andGreaterThanOrEqualTo(Object value, String column) {
+		addCriterion(column + " >=", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andLessThan(Object value, String column) {
+		addCriterion(column + " <", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andLessThanOrEqualTo(Object value, String column) {
+		addCriterion(column + " <=", value, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andIn(List<Object> values, String column) {
+		addCriterion(column + " in", values, column, ignoreNull);
+		return (Criteria) this;
+	}
+
+	public Criteria andIn(Object[] values, String column) {
+		if (values == null) {
+			logger.warn("列[" + column + "]上的条件被忽略,因为值为空");
+			return this;
+		}
+		return andIn(Arrays.asList(values), column);
+	}
+
+	public Criteria andNotIn(Object[] values, String column) {
+		if (values == null) {
+			logger.warn("列[" + column + "]上的条件被忽略,因为值为空");
+			return this;
+		}
+		return andNotIn(Arrays.asList(values), column);
+	}
+
+	public Criteria andNotIn(List<Object> values, String column) {
+		addCriterion(column + " not in", values, column, ignoreNull);
+		return (Criteria) this;
+	}
+//	=================
+
+	public Criteria andBetween(Object value1, Object value2, String column) {
+		addCriterion(column + " between", value1, value2, column);
+		return (Criteria) this;
+	}
+
+	public Criteria andNotBetween(Object value1, Object value2, String column) {
+		addCriterion(column + " not between", value1, value2, column);
+		return (Criteria) this;
+	}
+
+//	boolean ignoreNull, boolean ignoreBlank
+
+	public Criteria andLike(String value, String column) {
+		return andLike(value, column, ignoreNull, ignoreBlank);
+	}
+
+	public Criteria andLike(String value, String column, boolean ignoreNull) {
+		return andLike(value, column, ignoreNull, ignoreBlank);
+	}
+
+	public Criteria andLike(String value, String column, boolean ignoreNull, boolean ignoreBlank) {
+
+//		// 忽略空值
+//		if (value == null && ignoreNull) {
+//			logger.warn("列[" + column + "]上的条件被忽略,因为值为空");
+//			return this;
+//		}
+//
+//		if (ignoreBlank && value != null && "".equals(value.toString().trim())) {
+//			logger.warn("列[" + column + "]上的条件被忽略,因为值为空白字符串");
+//			return this;
+//		}
+
+//		select * from t_user where name like concat('%', #{name}, '%')    
+
+//		addCriterion(column + " like '%" + value + "%'");
+		String value2 = value;
+		if ((value2 != null) && (!value2.startsWith("%")) && (!value2.endsWith("%"))) {
+			value2 = "%" + value + "%";
+		}
+		addCriterion(column + " like ", value2, column, ignoreNull, ignoreBlank);
+
+		return (Criteria) this;
+	}
+
+	public Criteria andNotLike(String value, String column) {
+		return andNotLike(value, column, ignoreNull, ignoreBlank);
+	}
+
+	public Criteria andNotLike(String value, String column, boolean ignoreNull) {
+		return andNotLike(value, column, ignoreNull, ignoreBlank);
+	}
+
+	public Criteria andNotLike(String value, String column, boolean ignoreNull, boolean ignoreBlank) {
+//		// 忽略空值
+//		if (value == null && ignoreNull) {
+//			logger.warn("列[" + column + "]上的条件被忽略,因为值为空");
+//			return this;
+//		}
+//
+//		if (ignoreBlank && value != null && "".equals(value.toString().trim())) {
+//			logger.warn("列[" + column + "]上的条件被忽略,因为值为空白字符串");
+//			return this;
+//		}
+
+//		addCriterion(column + " not like '%" + value + "%'");
+
+//		addCriterion(column + " like '%" + value + "%'");
+		String value2 = value;
+		if ((value2 != null) && (!value2.startsWith("%")) && (!value2.endsWith("%"))) {
+			value2 = "%" + value + "%";
+		}
+		addCriterion(column + " not like ", value2, column, ignoreNull, ignoreBlank);
+
+		return (Criteria) this;
+
+	}
+
+//    public Criteria andLikeInsensitive(Object value, String column) {
+//    	if (value == null) {
+//            throw new RuntimeException("Value for " + column + " cannot be null");
+//        }
+//        addCriterion("upper("+column+") "+column, value.toString().toUpperCase(), column);
+//        return this;
+//    }
+//    
+//    public Criteria andIdIsNull() {
+//        addCriterion("id is null");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdIsNotNull() {
+//        addCriterion("id is not null");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdEqualTo(Integer value) {
+//        addCriterion("id =", value, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdNotEqualTo(Integer value) {
+//        addCriterion("id <>", value, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdGreaterThan(Integer value) {
+//        addCriterion("id >", value, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+//        addCriterion("id >=", value, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdLessThan(Integer value) {
+//        addCriterion("id <", value, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdLessThanOrEqualTo(Integer value) {
+//        addCriterion("id <=", value, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdIn(List<Integer> values) {
+//        addCriterion("id in", values, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdNotIn(List<Integer> values) {
+//        addCriterion("id not in", values, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdBetween(Integer value1, Integer value2) {
+//        addCriterion("id between", value1, value2, "id");
+//        return (Criteria) this;
+//    }
+//
+//    public Criteria andIdNotBetween(Integer value1, Integer value2) {
+//        addCriterion("id not between", value1, value2, "id");
+//        return (Criteria) this;
+//    }
+//    
+//    public Criteria andNameLikeInsensitive(String value) {
+//        addCriterion("upper(name) like", value.toUpperCase(), "name");
+//        return this;
+//    }
+
+}

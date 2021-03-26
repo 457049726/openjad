@@ -6,7 +6,6 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class PageDTO<T> extends PageData<T> {
 
-
 	public PageDTO() {
 	}
 	

@@ -12,7 +12,8 @@ public enum IdType {
 	SEQUENCE(1, "序列"), //目前jad只在oracle中实现，对于mysql自动切换为uuid
 	IDENTITY(2, "数据库ID自增"),
 	AUTO(3, "自动判断"), //自动判断，如果当前用的是mysql，则主键自动递增，如果当用的是oracle，此方式同sequence
-	UUID(4, "全局唯一ID")//
+	UUID(4, "全局唯一ID"),//
+	CUSTOMIZE(5,"自定义")  //自行设置id
 	;
 
 	/** 

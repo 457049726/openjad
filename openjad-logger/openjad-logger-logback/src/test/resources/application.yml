@@ -1,0 +1,4 @@
+logging:
+  file: /tsf-demo-logs/test/root.log
+  level:
+    root: info

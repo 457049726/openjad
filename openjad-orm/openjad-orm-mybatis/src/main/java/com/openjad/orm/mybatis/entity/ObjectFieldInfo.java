@@ -3,10 +3,12 @@ package com.openjad.orm.mybatis.entity;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 
+import javax.persistence.Id;
 import javax.persistence.TemporalType;
 
 import com.openjad.common.util.reflection.ReflectUtils;
 import com.openjad.orm.vo.JadBaseEO;
+import com.openjad.orm.vo.JadBaseTreeEO;
 
 /**
  * 对像属性信息
@@ -57,7 +59,8 @@ public class ObjectFieldInfo implements Serializable {
 	@SuppressWarnings("rawtypes")
 	public ObjectFieldInfo(Field field, Class clazz) {
 		this.field = field;
-		if (JadBaseEO.class.isAssignableFrom(clazz) && "id".equals(field.getName())) {
+		if ( (JadBaseEO.class.isAssignableFrom(clazz) && field.getAnnotation(Id.class) != null)
+				|| (JadBaseTreeEO.class.isAssignableFrom(clazz) && "parentId".equals(field.getName())) ) {
 			Class idClazz = ReflectUtils.getSuperClassGenricType(clazz, 0);
 			if (idClazz != Object.class) {
 				this.fieldType = idClazz;

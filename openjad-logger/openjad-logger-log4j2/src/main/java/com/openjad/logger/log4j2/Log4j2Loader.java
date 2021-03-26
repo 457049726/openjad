@@ -68,7 +68,7 @@ public class Log4j2Loader {
 		String logFilePath = getLogj2PathAndSetLoggingConfig();
 
 		if (StringUtils.isNotBlank(logFilePath)) {
-			System.out.println("开始加载Log4j2配置文件：" + logFilePath);
+//			System.out.println("开始加载Log4j2配置文件：" + logFilePath);
 			StatusLogger.getLogger().setLevel(Level.OFF);
 			// 加载外部日志文件
 			Configurator.initialize("Log4j2", logFilePath);

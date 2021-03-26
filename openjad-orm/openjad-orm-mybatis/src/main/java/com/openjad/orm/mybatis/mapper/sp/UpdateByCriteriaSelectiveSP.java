@@ -5,7 +5,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 /*
- * updateByCriteriaSelective 节点
  *   <update id="updateByCriteriaSelective"   >
     update m_rpc_exception
    <include refid="updateSelective" />
@@ -43,6 +42,7 @@ public class UpdateByCriteriaSelectiveSP extends MapperItemSP{
 		ifinclude.setAttribute("refid", "Update_By_Xr_Where_Clause");
 		ife.appendChild(ifinclude);
 		node.appendChild(ife);
+		
 		
 		return node;
 	}

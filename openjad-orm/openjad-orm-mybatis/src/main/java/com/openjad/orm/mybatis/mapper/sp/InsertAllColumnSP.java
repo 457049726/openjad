@@ -4,19 +4,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import com.openjad.orm.mybatis.entity.EoFieldInfo;
 import com.openjad.orm.enums.IdType;
+import com.openjad.orm.mybatis.entity.EoFieldInfo;
 
-/**
- * insertAllColumn 节点
- * 
- *  @author hechuan
- *
- */
 public class InsertAllColumnSP extends MapperItemSP {
 
-	/* 
-	 * <insert id="insertAllColumn" parameterType="com.jad.orm.mybatis.eo.RpcExceptionTraceDO"
+	/*
+	 * <insert id="insertAllColumn" parameterType="com.jad.dao.mybatis.eo.RpcExceptionTraceDO"
 	 * useGeneratedKeys="true" keyProperty="id">
 	 * insert into m_rpc_exception (
 	 * id,request_id,side,heap_stack,error_message,error_code
@@ -30,7 +24,6 @@ public class InsertAllColumnSP extends MapperItemSP {
 	 * #{errorCode,jdbcType=VARCHAR}
 	 * )
 	 * </insert>
-	 * @param mapperSP mapperSP
 	 */
 	public InsertAllColumnSP(MapperSP mapperSP) {
 		super(mapperSP, "insert", "insertAllColumn");

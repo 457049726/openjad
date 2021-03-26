@@ -3,6 +3,7 @@ package com.openjad.orm.mybatis.entity;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.openjad.orm.annotation.DelStrategy;
 import com.openjad.orm.enums.IdType;
 
 /**
@@ -52,6 +53,17 @@ public class EoMetaInfo extends ObjectMetaInfo {
 	 * 缓存 where条件 key:where key_sepeciType,val:WhereCondition
 	 */
 	private Map<String, WhereCondition> whereConditionMap = new HashMap<String, WhereCondition>();
+	
+	/**
+	 * 删除策略
+	 */
+	private int delStrategy = DelStrategy.PHYSICS_DELETE;
+	
+	/**
+	 * 组织策略
+	 */
+	private OrganizeStrategyInfo organizeStrategyInfo;
+	
 
 	public String getTableName() {
 		return tableName;
@@ -107,6 +119,22 @@ public class EoMetaInfo extends ObjectMetaInfo {
 
 	public void setSequenceName(String sequenceName) {
 		this.sequenceName = sequenceName;
+	}
+
+	public int getDelStrategy() {
+		return delStrategy;
+	}
+
+	public void setDelStrategy(int delStrategy) {
+		this.delStrategy = delStrategy;
+	}
+
+	public OrganizeStrategyInfo getOrganizeStrategyInfo() {
+		return organizeStrategyInfo;
+	}
+
+	public void setOrganizeStrategyInfo(OrganizeStrategyInfo organizeStrategyInfo) {
+		this.organizeStrategyInfo = organizeStrategyInfo;
 	}
 
 }

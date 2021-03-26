@@ -18,7 +18,15 @@ public interface EntityService<EO extends BaseEO, ID extends Serializable> exten
 	 * @return eo
 	 */
 	EO getById(ID id);
-
+	
+	List<EO> findByIds(List<ID> ids);
+	List<EO> findByIds(ID[] ids);
+	
+	EO findOneByPropertity(Object value,String column);
+	List<EO> findByPropertitys(Object[] values,String[] columns);
+	List<EO> findByPropertity(Object value,String column);
+	
+	
 	/**
 	 * 按条件分页查找
 	 * 

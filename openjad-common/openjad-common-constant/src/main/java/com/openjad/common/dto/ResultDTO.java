@@ -65,7 +65,7 @@ public class ResultDTO<T> implements Serializable {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static ResultDTO newSystemException(String msg) {
-		return newResult(FrameworkCode.CODE_09999, msg);
+		return newResult(FrameworkCode.CODE_99999, msg);
 
 	}
 
@@ -86,7 +86,7 @@ public class ResultDTO<T> implements Serializable {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static ResultDTO newBizException(String msg) {
-		return newResult(FrameworkCode.CODE_09999, msg);
+		return newResult(FrameworkCode.CODE_39999, msg);
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class ResultDTO<T> implements Serializable {
 	 */
 	public static <T> ResultDTO<T> newResult(BaseCode resultCode, String msg, T data) {
 		if (resultCode == null) {
-			resultCode = FrameworkCode.CODE_09999;
+			resultCode = FrameworkCode.CODE_99999;
 		}
 		if (msg == null || "".equals(msg.trim())) {
 			msg = resultCode.getValue();

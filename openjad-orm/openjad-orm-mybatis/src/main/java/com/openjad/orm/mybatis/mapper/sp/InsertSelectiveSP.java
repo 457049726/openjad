@@ -4,13 +4,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import com.openjad.orm.mybatis.entity.EoFieldInfo;
 import com.openjad.orm.enums.IdType;
+import com.openjad.orm.mybatis.entity.EoFieldInfo;
 
 /*
- *  insertSelective 节点
- *  
- * <insert id="insertSelective" parameterType="com.jad.orm.mybatis.eo.RpcExceptionTraceDO"
+ * 
+ * <insert id="insertSelective" parameterType="com.jad.dao.mybatis.eo.RpcExceptionTraceDO"
  * useGeneratedKeys="true" keyProperty="id">
  * insert into m_rpc_exception
  * <trim prefix="(" suffix=")" suffixOverrides="," >

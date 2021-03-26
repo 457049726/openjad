@@ -9,14 +9,11 @@ import com.openjad.orm.mybatis.utils.SqlHelper;
 
 /*
  * 
- * listByPagedCriteria 节点
- * 
- * 
  <select id="listByPagedCriteria" resultMap="BaseResultMap"
  * parameterType="com.openjad.orm.criterion.PagedCriteria" >
  * select
  * <if test="distinct" >distinct</if>
- * <include refid="Jad_Base_Column_List" />
+ * <include refid="Base_Column_List" />
  * from m_rpc_exception
  * <if test="_parameter != null" >
  * <include refid="Xr_Where_Clause" />
@@ -51,7 +48,7 @@ public class ListByPagedCriteriaSP extends MapperItemSP {
 		node.appendChild(if1);
 
 		Element include = doc.createElement("include");
-		include.setAttribute("refid", "Jad_Base_Column_List");
+		include.setAttribute("refid", "Base_Column_List");
 		node.appendChild(include);
 
 		String tableName = mapperSP.getEoMetaInfo().getTableName();

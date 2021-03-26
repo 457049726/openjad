@@ -16,9 +16,9 @@ public abstract class BaseCode {
 
 	private CodeValuePair codeValue = new CodeValuePair();
 
-	protected static final String TYPE_TYPE_FLAG = "type";
-	protected static final String STATE_TYPE_FLAG = "state";
-	protected static final String CODE_TYPE_FLAG = "code";
+//	protected static final String TYPE_TYPE_FLAG = "type";
+//	protected static final String STATE_TYPE_FLAG = "state";
+//	protected static final String CODE_TYPE_FLAG = "code";
 
 	public static Map<String, Map<String, BaseCode>> ALL = new TreeMap<String, Map<String, BaseCode>>();
 
@@ -29,7 +29,7 @@ public abstract class BaseCode {
 		if (code == null || "".equals(code)) {
 			throw new IllegalArgumentException("code不能为空");
 		}
-		if (value == null ) {
+		if (value == null) {
 			value = "";
 		}
 
@@ -67,8 +67,8 @@ public abstract class BaseCode {
 		}
 
 		List<T> orderedList = Collections.emptyList();
-		for(BaseCode code:ALL.get(typeFlag).values()){
-			orderedList.add((T)code);
+		for (BaseCode code : ALL.get(typeFlag).values()) {
+			orderedList.add((T) code);
 		}
 
 		Collections.sort(orderedList, new Comparator<T>() {
@@ -76,11 +76,28 @@ public abstract class BaseCode {
 			public int compare(T o1, T o2) {
 				BaseCode type1 = (BaseCode) o1;
 				BaseCode type2 = (BaseCode) o2;
-				return type1.getValue().compareTo(type2.getValue());
+				return type1.getCode().compareTo(type2.getCode());
 			}
 		});
 
 		return orderedList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static <T extends BaseCode> T valueOf(String typeFlag, String code) {
+		if (typeFlag == null || code == null) {
+			return null;
+		}
+		Map<String, BaseCode> map = ALL.get(typeFlag);
+		if (map == null || map.isEmpty()) {
+			return null;
+		}
+
+		BaseCode b = map.get(code);
+		if (b == null) {
+			return null;
+		}
+		return (T) b;
 	}
 
 	public String getCode() {
@@ -109,7 +126,7 @@ public abstract class BaseCode {
 			return false;
 		}
 
-		return this.codeValue.getValue().equals(((Type) obj).getValue());
+		return this.codeValue.getCode().equals(((Type) obj).getCode());
 	}
 
 	@Override

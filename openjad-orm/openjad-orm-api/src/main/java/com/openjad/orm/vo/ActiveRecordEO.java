@@ -4,20 +4,27 @@ import java.util.Date;
 
 public interface ActiveRecordEO extends BaseEO {
 
-	public String getCreateUser();
+	String getCreateUser();
 
-	public void setCreateUser(String createUser);
+	void setCreateUser(String createUser);
 
-	public Date getCreateTime();
+	Date getCreateTime();
 
-	public void setCreateTime(Date createTime);
+	void setCreateTime(Date createTime);
 
-	public String getUpdateUser();
+	String getUpdateUser();
 
-	public void setUpdateUser(String updateUser);
+	void setUpdateUser(String updateUser);
 
-	public Date getUpdateTime();
+	Date getUpdateTime();
 
-	public void setUpdateTime(Date updateTime);
+	void setUpdateTime(Date updateTime);
+
+	String getRemarks();
+
+	void setRemarks(String remarks);
+	
+	String getStatus();
+	void setStatus(String status);
 
 }

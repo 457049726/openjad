@@ -8,8 +8,6 @@ import com.openjad.orm.mybatis.entity.EoFieldInfo;
 
 
 /*
- * updateByIdSelective 节点
- * 
  *   <update id="updateByIdSelective"  >
     update m_rpc_exception
   <include refid="updateSelective" />

@@ -29,15 +29,7 @@
 			<version>3.20.0-GA</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
+		
 
 		<dependency>
 			<groupId>com.google.guava</groupId>

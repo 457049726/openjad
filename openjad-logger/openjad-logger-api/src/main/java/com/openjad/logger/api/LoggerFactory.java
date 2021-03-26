@@ -33,9 +33,15 @@ public class LoggerFactory {
 		try {
 			setLoggerAdapter((LoggerAdapter) Class.forName("com.openjad.logger.log4j2.Log4j2LoggerAdapter").newInstance());
 		} catch (Exception e) {
-//			System.err.println("日志框架初始化失败，自动转换为JdkLoggerAdapter");
-			setLoggerAdapter(new JdkLoggerAdapter());
+			try {
+				setLoggerAdapter((LoggerAdapter) Class.forName("com.openjad.logger.logback.LogbackLoggerAdapter").newInstance());
+			} catch (Exception e2) {
+//				System.err.println("日志框架初始化失败，自动转换为JdkLoggerAdapter");
+				setLoggerAdapter(new JdkLoggerAdapter());
+			}
 		}
+		
+		
 
 		try {
 			initJdkLogFormatter();

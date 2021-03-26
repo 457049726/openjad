@@ -39,17 +39,16 @@
 		
 	</settings>
 	
-     <!-- 
+     <!--     -->
     <typeAliases>
-    	<typeAlias alias="Page" type="com.jad.commons.vo.Page" />
+    	<typeAlias alias="Page" type="com.openjad.common.page.PageBO" />
 	</typeAliases>
-     -->
     
-    <!-- 插件配置
+    <!-- 插件配置-->
 	<plugins>
-		<plugin interceptor="com.jad.dao.mybatis.interceptor.UpdateInterceptor" />
-		<plugin interceptor="com.jad.dao.mybatis.interceptor.QueryInterceptor" />
+		<plugin interceptor="com.openjad.orm.mybatis.interceptor.PageInterceptor" />
     </plugins>   
-  -->
-	
+  
 </configuration>
+
+

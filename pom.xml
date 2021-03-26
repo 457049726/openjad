@@ -9,18 +9,17 @@
 	<name>openjad-framework</name>
 	<url>http://www.openjad.com</url>
 	<packaging>pom</packaging>
-	
-	<!---->
+
+	<!--
 	<modules>
 		<module>openjad-common</module>
 		<module>openjad-logger</module>
 		<module>openjad-test</module>
 		<module>openjad-orm</module>
 	</modules>
-	
+	-->
 
 	<properties>
-
 		<openjad-framework.version>2.0.3-RELEASE</openjad-framework.version>
 
 		<java.version>1.8</java.version>
@@ -122,6 +121,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-jdbc</artifactId>
 				<version>${spring-boot.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
@@ -135,6 +140,8 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+			
+			
 			
 			<!-- 
 			<dependency>
@@ -150,8 +157,8 @@
 				<version>${spring-boot.version}</version>
 				<exclusions>
 					<exclusion>
-						<artifactId>slf4j-api</artifactId>
-						<groupId>org.slf4j</groupId>
+						<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
 					</exclusion>
 					<exclusion>
 						<artifactId>thymeleaf-extras-java8time</artifactId>
@@ -236,6 +243,18 @@
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>io.projectreactor.netty</groupId>
+				<artifactId>reactor-netty</artifactId>
+				<version>0.8.10.RELEASE</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.sourceforge.htmlunit</groupId>
+				<artifactId>htmlunit</artifactId>
+				<version>2.35.0</version>
+			</dependency>
 			
 			<!-- servlet -->
 			<dependency>
@@ -284,7 +303,7 @@
 				</executions>
 			</plugin>
 
-			<!---->
+			<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -305,8 +324,8 @@
 					<additionalparam>-Xdoclint:none</additionalparam>
 				</configuration>
 			</plugin>
-			 
-			<!--gpg加密插件-->
+			 -->
+			<!--gpg加密插件
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
@@ -320,7 +339,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+			-->
 		</plugins>
 	</build>
 </project>

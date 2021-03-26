@@ -12,6 +12,6 @@ public class VersionConstants {
 	/**
 	 * 当前框架版本
 	 */
-	public static final String CURRENT_FRAMEWORK_VERSION = "2.0.1-RELEASE";
+	public static final String CURRENT_FRAMEWORK_VERSION = "2.0.3-RELEASE";
 
 }
