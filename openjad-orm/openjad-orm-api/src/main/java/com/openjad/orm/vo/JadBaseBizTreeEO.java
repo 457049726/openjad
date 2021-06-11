@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class JadBaseBizTreeEO<ID extends Serializable,EO extends BaseEO> 
-	extends JadBaseTreeEO<ID,EO> implements ActiveRecordEO,DelFlagEO,TenantEO {
+	extends JadBaseTreeEO<ID,EO> implements ActiveRecordEO,StatusEO,DelFlagEO,TenantEO {
 	
 	/**
 	 * 

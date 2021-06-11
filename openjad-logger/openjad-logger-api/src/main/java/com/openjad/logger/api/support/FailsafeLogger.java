@@ -71,7 +71,6 @@ public class FailsafeLogger extends AbstractLogger {
 		try {
 			logger.debug(msg);
 		} catch (Throwable t) {
-			t.printStackTrace();
 		}
 	}
 
@@ -104,7 +103,6 @@ public class FailsafeLogger extends AbstractLogger {
 		try {
 			logger.warn(msg);
 		} catch (Throwable t) {
-			System.out.println("呃");
 		}
 	}
 
@@ -129,7 +127,6 @@ public class FailsafeLogger extends AbstractLogger {
 		try {
 			logger.error(e);
 		} catch (Throwable t) {
-			t.printStackTrace();
 		}
 	}
 

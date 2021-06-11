@@ -29,7 +29,6 @@ import com.openjad.common.util.StringUtils;
  */
 public class Log4j2Loader {
 
-
 	/**
 	 * 加载标志位，防止重复加载
 	 */
@@ -76,10 +75,8 @@ public class Log4j2Loader {
 
 	}
 
-	
-
 	public static void preReloadLog4j2() {
-		
+
 		// 获取端口
 		setServerPort();
 
@@ -106,7 +103,12 @@ public class Log4j2Loader {
 
 		}
 
-		String logFilePath = CLASS_PATH + File.separator + "config" + File.separator + DEFAULT_LOG4J_FILE;
+//		String logFilePath = CLASS_PATH + File.separator + "config" + File.separator + DEFAULT_LOG4J_FILE;
+		//20210426直接拿classPath中的日志文件
+		String logFilePath = CLASS_PATH + File.separator + DEFAULT_LOG4J_FILE;
+		if (!isExists(logFilePath)) {
+			logFilePath = CLASS_PATH + File.separator + "config" + File.separator + DEFAULT_LOG4J_FILE;
+		}
 		if (!isExists(logFilePath)) {
 			logFilePath = new File(CLASS_PATH).getParent() + File.separator + "config" + File.separator + DEFAULT_LOG4J_FILE;
 		}
@@ -176,6 +178,5 @@ public class Log4j2Loader {
 		}
 		System.setProperty(key, projectName);
 	}
-
 
 }

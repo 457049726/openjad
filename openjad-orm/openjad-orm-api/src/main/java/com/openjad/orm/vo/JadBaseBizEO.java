@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class JadBaseBizEO<ID extends Serializable> extends JadBaseEO<ID>
-		implements ActiveRecordEO, DelFlagEO,TenantEO {
+		implements ActiveRecordEO,RemarksEO,StatusEO, DelFlagEO,TenantEO {
 
 	/**
 	 * 
