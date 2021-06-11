@@ -10,14 +10,14 @@
 	<url>http://www.openjad.com</url>
 	<packaging>pom</packaging>
 
-	<!--
+	<!---->
 	<modules>
 		<module>openjad-common</module>
 		<module>openjad-logger</module>
 		<module>openjad-test</module>
 		<module>openjad-orm</module>
 	</modules>
-	-->
+	
 
 	<properties>
 		<openjad-framework.version>2.0.3-RELEASE</openjad-framework.version>
