@@ -34,7 +34,6 @@ public class FrameworkCode extends BaseLogCode {
 	
 	public static final FrameworkCode CODE_99999 = new FrameworkCode("99999", "系统异常", false);
 	
-
 	protected FrameworkCode(String code, String value, boolean urlForMore) {
 		super(FRAMEWORK_LOG_FLAG, code, value, urlForMore);
 	}

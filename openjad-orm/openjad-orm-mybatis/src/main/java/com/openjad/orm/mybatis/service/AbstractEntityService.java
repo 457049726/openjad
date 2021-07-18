@@ -450,10 +450,6 @@ public abstract class AbstractEntityService<EO extends BaseEO, ID extends Serial
 				eo.setUpdateUser(RequestContext.getCurrentUser());
 			}
 		}
-		if (isLogicDel()) {
-			DelFlagEO delEo = (DelFlagEO) d;
-			delEo.setDelFlag(DelFlagEO.NOT_DEL);
-		}
 		return -1;
 	}
 

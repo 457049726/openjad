@@ -179,7 +179,13 @@ public class PageInterceptor extends AbstractInterceptor {
 		if (StringUtils.isBlank(countSqlFragment)) {
 			countSqlFragment = " count(*) ";
 		}
-		return "select " + countSqlFragment + " " + TOTAL_COUNT_COLUMN + " " + sql.substring(sql.toUpperCase().indexOf("FROM"));
+		String countSql="select " + countSqlFragment + " " + TOTAL_COUNT_COLUMN + " " + sql.substring(sql.toUpperCase().indexOf("FROM"));
+		
+		if(countSql.toUpperCase().contains("ORDER BY")) {
+			countSql=countSql.substring(0,countSql.toUpperCase().indexOf("ORDER BY"));
+		}
+		
+		return countSql;
 	}
 
 
