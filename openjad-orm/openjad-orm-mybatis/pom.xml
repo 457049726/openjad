@@ -9,7 +9,7 @@
 	<artifactId>openjad-orm-mybatis</artifactId>
 
 	<properties>
-		<mysql.version>5.1.46</mysql.version>
+		<mysql.version>8.0.28</mysql.version>
 	</properties>
 
 	<dependencies>
